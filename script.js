@@ -1,105 +1,131 @@
-/*==============================
-スライダー（スワイプ対応）
-==============================*/
-const bars = document.querySelectorAll(".bar");
 const slides = document.querySelector(".slides");
-const slideCount = document.querySelectorAll(".slide").length;
+const bars = document.querySelectorAll(".bar");
 
-let current = 0;
-let startX = 0;
-let currentX = 0;
-let isDragging = false;
+let slideList = [...document.querySelectorAll(".slide")];
+const total = slideList.length;
 
-function showSlide(index){
+// ---------- 無限ループ用 ----------
+const firstClone = slideList[0].cloneNode(true);
+const lastClone = slideList[total-1].cloneNode(true);
 
-    slides.style.transform = `translateX(-${index*100}%)`;
+slides.appendChild(firstClone);
+slides.insertBefore(lastClone,slideList[0]);
+
+slideList = [...document.querySelectorAll(".slide")];
+
+let current = 1;
+
+slides.style.transform=`translateX(-100%)`;
+
+// ---------- バー ----------
+function updateBar(){
 
     bars.forEach(bar=>bar.classList.remove("active"));
+
+    let index=current-1;
+
+    if(index<0) index=total-1;
+
+    if(index>=total) index=0;
 
     bars[index].classList.add("active");
 
 }
 
-// ------------------
-// 自動送り
-// ------------------
+updateBar();
 
-let autoSlide = setInterval(nextSlide,6000);
+// ---------- スライド表示 ----------
+
+function moveSlide(){
+
+    slides.style.transition=".45s ease";
+
+    slides.style.transform=`translateX(-${current*100}%)`;
+
+}
+
+// ---------- 自動送り ----------
+
+let timer=setInterval(nextSlide,8000);
+
+function restart(){
+
+    clearInterval(timer);
+
+    timer=setInterval(nextSlide,8000);
+
+}
 
 function nextSlide(){
 
     current++;
 
-    if(current>=slideCount){
+    moveSlide();
 
-        current=0;
+}
+
+function prevSlide(){
+
+    current--;
+
+    moveSlide();
+
+}
+
+// ---------- ループ ----------
+
+slides.addEventListener("transitionend",()=>{
+
+    if(current===total+1){
+
+        slides.style.transition="none";
+
+        current=1;
+
+        slides.style.transform=`translateX(-100%)`;
 
     }
 
-    showSlide(current);
+    if(current===0){
 
-}
+        slides.style.transition="none";
 
-function restartTimer(){
+        current=total;
 
-    clearInterval(autoSlide);
+        slides.style.transform=`translateX(-${total*100}%)`;
 
-    autoSlide = setInterval(nextSlide,6000);
+    }
 
-}
-
-// ------------------
-// スワイプ開始
-// ------------------
-
-slides.addEventListener("touchstart",(e)=>{
-
-    startX = e.touches[0].clientX;
-
-    isDragging = true;
+    updateBar();
 
 });
 
-// ------------------
-// スワイプ終了
-// ------------------
+// ---------- スワイプ ----------
+
+let startX=0;
+
+slides.addEventListener("touchstart",(e)=>{
+
+    startX=e.touches[0].clientX;
+
+});
 
 slides.addEventListener("touchend",(e)=>{
 
-    if(!isDragging) return;
-
-    currentX = e.changedTouches[0].clientX;
-
-    let diff = startX-currentX;
+    let diff=startX-e.changedTouches[0].clientX;
 
     if(diff>50){
 
-        current++;
-
-        if(current>=slideCount){
-
-            current=0;
-
-        }
+        nextSlide();
 
     }
 
     else if(diff<-50){
 
-        current--;
-
-        if(current<0){
-
-            current=slideCount-1;
-
-        }
+        prevSlide();
 
     }
 
-    showSlide(current);
-
-    restartTimer();
-
-    isDragging=false;
+    restart();
 
 });
