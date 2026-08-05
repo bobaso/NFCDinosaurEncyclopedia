@@ -170,4 +170,44 @@ background-position:center top;
 
 }
 
+    /*==============================
+ページインジケーター
+==============================*/
+
+.indicator{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+.bar{
+
+    width:24px;
+
+    height:4px;
+
+    background:#bdbdbd;
+
+    border-radius:10px;
+
+    transition:.35s;
+
+}
+
+.bar.active{
+
+    width:52px;
+
+    background:#ffffff;
+
+}
+
 }
