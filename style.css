@@ -74,9 +74,9 @@ body{
 
 .slider{
 
-    width:calc(100% - 50px);
+     width:calc(100% - 40px);
 
-    margin:35px auto;
+    margin:0 auto;
 
     overflow:hidden;
 
