@@ -1,66 +1,43 @@
+/*========================================
+カルーセル
+========================================*/
+
 const slides = document.querySelector(".slides");
+const slideItems = document.querySelectorAll(".slide");
 const bars = document.querySelectorAll(".bar");
 
-let slideList = [...document.querySelectorAll(".slide")];
-const total = slideList.length;
+let current = 0;
+const total = slideItems.length;
 
-// ---------- 無限ループ用 ----------
-const firstClone = slideList[0].cloneNode(true);
-const lastClone = slideList[total-1].cloneNode(true);
+function updateSlider(){
 
-slides.appendChild(firstClone);
-slides.insertBefore(lastClone,slideList[0]);
+    slides.style.transform = `translateX(-${current * 100}%)`;
 
-slideList = [...document.querySelectorAll(".slide")];
+    bars.forEach((bar,index)=>{
 
-let current = 1;
+        bar.classList.toggle("active", index === current);
 
-slides.style.transform=`translateX(-100%)`;
-
-// ---------- バー ----------
-function updateBar(){
-
-    bars.forEach(bar=>bar.classList.remove("active"));
-
-    let index=current-1;
-
-    if(index<0) index=total-1;
-
-    if(index>=total) index=0;
-
-    bars[index].classList.add("active");
+    });
 
 }
 
-updateBar();
+/*------------------------------
+自動送り（8秒）
+------------------------------*/
 
-// ---------- スライド表示 ----------
-
-function moveSlide(){
-
-    slides.style.transition=".45s ease";
-
-    slides.style.transform=`translateX(-${current*100}%)`;
-
-}
-
-// ---------- 自動送り ----------
-
-let timer=setInterval(nextSlide,8000);
-
-function restart(){
-
-    clearInterval(timer);
-
-    timer=setInterval(nextSlide,8000);
-
-}
+let autoTimer = setInterval(nextSlide,8000);
 
 function nextSlide(){
 
     current++;
 
-    moveSlide();
+    if(current >= total){
+
+        current = 0;
+
+    }
+
+    updateSlider();
 
 }
 
@@ -68,64 +45,90 @@ function prevSlide(){
 
     current--;
 
-    moveSlide();
+    if(current < 0){
+
+        current = total - 1;
+
+    }
+
+    updateSlider();
 
 }
 
-// ---------- ループ ----------
+function restartTimer(){
 
-slides.addEventListener("transitionend",()=>{
+    clearInterval(autoTimer);
 
-    if(current===total+1){
+    autoTimer = setInterval(nextSlide,8000);
 
-        slides.style.transition="none";
+}
 
-        current=1;
+/*------------------------------
+スワイプ
+------------------------------*/
 
-        slides.style.transform=`translateX(-100%)`;
-
-    }
-
-    if(current===0){
-
-        slides.style.transition="none";
-
-        current=total;
-
-        slides.style.transform=`translateX(-${total*100}%)`;
-
-    }
-
-    updateBar();
-
-});
-
-// ---------- スワイプ ----------
-
-let startX=0;
+let startX = 0;
 
 slides.addEventListener("touchstart",(e)=>{
 
-    startX=e.touches[0].clientX;
+    startX = e.touches[0].clientX;
 
 });
 
 slides.addEventListener("touchend",(e)=>{
 
-    let diff=startX-e.changedTouches[0].clientX;
+    const endX = e.changedTouches[0].clientX;
 
-    if(diff>50){
+    const diff = startX - endX;
+
+    if(diff > 50){
 
         nextSlide();
 
+        restartTimer();
+
     }
 
-    else if(diff<-50){
+    else if(diff < -50){
 
         prevSlide();
 
+        restartTimer();
+
     }
 
-    restart();
+});
+
+/*========================================
+フェードイン
+========================================*/
+
+const fadeItems = document.querySelectorAll(".fadein");
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},{
+    threshold:0.2
+});
+
+fadeItems.forEach(item=>{
+
+    observer.observe(item);
 
 });
+
+/*========================================
+初期表示
+========================================*/
+
+updateSlider();
