@@ -53,8 +53,9 @@ body{
 
 .logo{
 
-    width:65%;
-    max-width:260px;
+    width:80%;
+
+    max-width:330px;
 
     margin:30px auto;
 
@@ -63,6 +64,9 @@ body{
 .logo img{
 
     width:100%;
+
+    height:auto;
+
     display:block;
 
 }
