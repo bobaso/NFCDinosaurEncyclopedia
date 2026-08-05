@@ -7,25 +7,41 @@ const slideItems = document.querySelectorAll(".slide");
 const bars = document.querySelectorAll(".bar");
 
 let current = 0;
+
 const total = slideItems.length;
+
+
+/*------------------------------
+表示更新
+------------------------------*/
 
 function updateSlider(){
 
-    slides.style.transform = `translateX(-${current * 100}%)`;
+    const sliderWidth = document.querySelector(".slider").clientWidth;
+
+    slides.style.transform =
+    `translateX(-${current * sliderWidth}px)`;
+
 
     bars.forEach((bar,index)=>{
 
-        bar.classList.toggle("active", index === current);
+        bar.classList.toggle(
+            "active",
+            index === current
+        );
 
     });
 
 }
 
+
 /*------------------------------
-自動送り（8秒）
+自動送り
 ------------------------------*/
 
-let autoTimer = setInterval(nextSlide,8000);
+let autoTimer =
+setInterval(nextSlide,8000);
+
 
 function nextSlide(){
 
@@ -41,6 +57,7 @@ function nextSlide(){
 
 }
 
+
 function prevSlide(){
 
     current--;
@@ -55,13 +72,16 @@ function prevSlide(){
 
 }
 
+
 function restartTimer(){
 
     clearInterval(autoTimer);
 
-    autoTimer = setInterval(nextSlide,8000);
+    autoTimer =
+    setInterval(nextSlide,8000);
 
 }
+
 
 /*------------------------------
 スワイプ
@@ -69,43 +89,72 @@ function restartTimer(){
 
 let startX = 0;
 
-slides.addEventListener("touchstart",(e)=>{
 
-    startX = e.touches[0].clientX;
+slides.addEventListener(
+"touchstart",
+(e)=>{
+
+    startX =
+    e.touches[0].clientX;
 
 });
 
-slides.addEventListener("touchend",(e)=>{
 
-    const endX = e.changedTouches[0].clientX;
+slides.addEventListener(
+"touchend",
+(e)=>{
 
-    const diff = startX - endX;
+    const endX =
+    e.changedTouches[0].clientX;
+
+
+    const diff =
+    startX - endX;
+
 
     if(diff > 50){
 
         nextSlide();
 
-        restartTimer();
-
     }
-
     else if(diff < -50){
 
         prevSlide();
 
-        restartTimer();
-
     }
 
+
+    restartTimer();
+
 });
+
+
+
+/*========================================
+画面サイズ変更対応
+========================================*/
+
+window.addEventListener(
+"resize",
+()=>{
+
+    updateSlider();
+
+});
+
+
 
 /*========================================
 フェードイン
 ========================================*/
 
-const fadeItems = document.querySelectorAll(".fadein");
+const fadeItems =
+document.querySelectorAll(".fadein");
 
-const observer = new IntersectionObserver((entries)=>{
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
 
     entries.forEach(entry=>{
 
@@ -117,15 +166,19 @@ const observer = new IntersectionObserver((entries)=>{
 
     });
 
-},{
+},
+{
     threshold:0.2
 });
+
 
 fadeItems.forEach(item=>{
 
     observer.observe(item);
 
 });
+
+
 
 /*========================================
 初期表示
