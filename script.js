@@ -1,17 +1,50 @@
-const slides=document.querySelector(".slides");
+/*==============================
+スライダー
+==============================*/
 
-let current=0;
+const slides = document.querySelector(".slides");
 
-setInterval(()=>{
+let current = 0;
 
-current++;
+setInterval(() => {
 
-if(current>1){
+    current++;
 
-current=0;
+    if(current > 1){
 
-}
+        current = 0;
 
-slides.style.transform=`translateX(-${current*100}%)`;
+    }
+
+    slides.style.transform = `translateX(-${current * 100}%)`;
 
 },3000);
+
+
+/*==============================
+スクロールアニメーション
+==============================*/
+
+const fadeElements = document.querySelectorAll(".fadein");
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},{
+    threshold:0.2
+});
+
+fadeElements.forEach(element=>{
+
+    observer.observe(element);
+
+});
