@@ -3,36 +3,31 @@
 ==============================*/
 
 *{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-
-scroll-behavior:smooth;
-
+    scroll-behavior:smooth;
 }
 
 body{
 
-font-family:sans-serif;
+    font-family:
+    "Hiragino Sans",
+    "Yu Gothic",
+    sans-serif;
 
-color:#222;
+    color:#222;
 
-/* 背景画像 */
-
-background-image:url(images/background.png);
-
-background-size:100% auto;
-
-background-repeat:no-repeat;
-
-background-position:center top;
+    background-image:url("images/background.png");
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size:100% auto;
 
 }
+
 
 /*==============================
 ページ全体
@@ -43,7 +38,7 @@ background-position:center top;
     width:100%;
     max-width:430px;
 
-    margin:auto;
+    margin:0 auto;
 
     min-height:4000px;
 
@@ -60,6 +55,7 @@ background-position:center top;
 
     width:65%;
     max-width:260px;
+
     margin:30px auto;
 
 }
@@ -67,26 +63,27 @@ background-position:center top;
 .logo img{
 
     width:100%;
-    height:auto;
     display:block;
 
 }
 
+
 /*==============================
-スライダー
+カルーセル
 ==============================*/
 
 .slider{
 
-    width:calc(100% - 50px);   /* 本文と同じ余白 */
-    max-width:380px;
-    margin:30px auto;
+    width:calc(100% - 50px);
+
+    margin:35px auto;
 
     overflow:hidden;
 
-    border-radius:20px;
+    border-radius:18px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.25);
 
 }
 
@@ -94,7 +91,7 @@ background-position:center top;
 
     display:flex;
 
-    transition:transform .45s ease;
+    transition:transform .5s ease;
 
 }
 
@@ -115,26 +112,81 @@ background-position:center top;
     object-fit:cover;
 
 }
+
+
+/*==============================
+画像が無い時の表示
+==============================*/
+
 .placeholder{
+
     width:100%;
+
     aspect-ratio:16/9;
+
+    background:#e5e5e5;
+
+    border:3px dashed #777;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
-    background:#ddd;
-    border:2px dashed #666;
+
+    font-size:26px;
+
     color:#666;
-    font-size:24px;
+
 }
+
+
+/*==============================
+ページインジケーター
+==============================*/
+
+.indicator{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:15px 0;
+
+}
+
+.bar{
+
+    width:24px;
+
+    height:4px;
+
+    border-radius:20px;
+
+    background:#999;
+
+    transition:.35s;
+
+}
+
+.bar.active{
+
+    width:54px;
+
+    background:#fff;
+
+}
+
+
 /*==============================
 本文
 ==============================*/
 
 .contents{
 
-    padding:40px 25px;
-
-    text-align:center;
+    padding:45px 25px;
 
 }
 
@@ -142,9 +194,17 @@ background-position:center top;
 
     font-size:34px;
 
-    margin-bottom:30px;
+    line-height:1.4;
 
-    text-align:center;
+    margin-bottom:25px;
+
+}
+
+.contents h1 span{
+
+    font-size:22px;
+
+    color:#555;
 
 }
 
@@ -152,13 +212,13 @@ background-position:center top;
 
     font-size:18px;
 
-    line-height:2.1;
-
-    text-align:center;
+    line-height:2;
 
 }
-    /*==============================
-スクロールアニメーション
+
+
+/*==============================
+フェードイン
 ==============================*/
 
 .fadein{
@@ -168,8 +228,8 @@ background-position:center top;
     transform:translateY(50px);
 
     transition:
-        opacity .8s ease,
-        transform .8s ease;
+    opacity .8s,
+    transform .8s;
 
 }
 
@@ -181,44 +241,23 @@ background-position:center top;
 
 }
 
-    /*==============================
-ページインジケーター
+
+/*==============================
+スマホ微調整
 ==============================*/
 
-.indicator{
+@media (max-width:430px){
 
-    display:flex;
+    .contents h1{
 
-    justify-content:center;
+        font-size:30px;
 
-    align-items:center;
+    }
 
-    gap:10px;
+    .contents p{
 
-    margin-top:15px;
+        font-size:17px;
 
-}
-
-.bar{
-
-    width:24px;
-
-    height:4px;
-
-    background:#bdbdbd;
-
-    border-radius:10px;
-
-    transition:.35s;
+    }
 
 }
-
-.bar.active{
-
-    width:52px;
-
-    background:#ffffff;
-
-}
-
-
