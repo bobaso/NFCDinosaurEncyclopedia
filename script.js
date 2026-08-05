@@ -1,7 +1,7 @@
 /*==============================
 スライダー（スワイプ対応）
 ==============================*/
-
+const bars = document.querySelectorAll(".bar");
 const slides = document.querySelector(".slides");
 const slideCount = document.querySelectorAll(".slide").length;
 
@@ -13,6 +13,10 @@ let isDragging = false;
 function showSlide(index){
 
     slides.style.transform = `translateX(-${index*100}%)`;
+
+    bars.forEach(bar=>bar.classList.remove("active"));
+
+    bars[index].classList.add("active");
 
 }
 
