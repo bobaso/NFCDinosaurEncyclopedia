@@ -120,22 +120,28 @@ font-weight:bold;
 
 .contents{
 
-padding:40px 25px;
+    padding:40px 25px;
+
+    text-align:center;
 
 }
 
 .contents h1{
 
-font-size:34px;
+    font-size:34px;
 
-margin-bottom:30px;
+    margin-bottom:30px;
+
+    text-align:center;
 
 }
 
 .contents p{
 
-font-size:18px;
+    font-size:18px;
 
-line-height:2.1;
+    line-height:2.1;
+
+    text-align:center;
 
 }
