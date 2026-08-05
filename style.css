@@ -78,9 +78,12 @@ background-position:center top;
 
 .slider{
 
-margin-top:30px;
+    width:calc(100% - 50px);
+    margin:30px auto 0;
 
-overflow:hidden;
+    overflow:hidden;
+
+    border-radius:20px;
 
 }
 
