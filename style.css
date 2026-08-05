@@ -73,9 +73,17 @@ body{
 ==============================*/
 
 .slider{
-    position:absolute;
-    top:70px;
+
+    width:75%;
+
+    margin-top:70px;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
 }
+
 
 .slides{
 
@@ -85,11 +93,13 @@ body{
 
 }
 
+
 .slide{
 
     flex:0 0 100%;
 
 }
+
 
 .slide img{
 
@@ -97,7 +107,7 @@ body{
 
     width:100%;
 
-    aspect-ratio:16/9;
+    height:150px;
 
     object-fit:cover;
 
@@ -105,14 +115,14 @@ body{
 
 
 /*==============================
-画像が無い時の表示
+画像が無い時
 ==============================*/
 
 .placeholder{
 
     width:100%;
 
-    aspect-ratio:16/9;
+    height:150px;
 
     background:#e5e5e5;
 
@@ -124,42 +134,7 @@ body{
 
     align-items:center;
 
-    font-size:26px;
-
-    color:#666;
-
-}
-
-
-/*==============================
-ページインジケーター
-==============================*/
-
-.indicator{
-
-    margin-top:12px;
-
-}
-
-.bar{
-
-    width:24px;
-
-    height:4px;
-
-    border-radius:20px;
-
-    background:#999;
-
-    transition:.35s;
-
-}
-
-.bar.active{
-
-    width:54px;
-
-    background:#fff;
+    font-size:22px;
 
 }
 
@@ -169,35 +144,30 @@ body{
 ==============================*/
 
 .contents{
-    position:absolute;
-    top:330px;
+
+    width:75%;
+
+    padding-top:35px;
+
 }
+
 
 .contents h1{
 
-    font-size:34px;
+    font-size:30px;
 
-    margin-bottom:25px;
-
-}
-
-.contents h1 span{
-
-    font-size:22px;
-
-    color:#666;
+    margin-bottom:20px;
 
 }
+
 
 .contents p{
 
-    font-size:18px;
+    font-size:16px;
 
-    line-height:2;
+    line-height:1.8;
 
 }
-
-
 /*==============================
 フェードイン
 ==============================*/
@@ -293,6 +263,4 @@ body{
 
     align-items:center;
 
-}
-}
 }
