@@ -76,29 +76,17 @@ background-position:center top;
 スライダー
 ==============================*/
 
-.slide{
+.slider{
 
-    flex:0 0 100%;
-
-    height:220px;
+    width:calc(100% - 50px);   /* 本文と同じ余白 */
+    max-width:380px;
+    margin:30px auto;
 
     overflow:hidden;
 
-}
+    border-radius:20px;
 
-.slide img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-    user-select:none;
-
-    -webkit-user-drag:none;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
 
 }
 
@@ -106,26 +94,27 @@ background-position:center top;
 
     display:flex;
 
+    transition:transform .45s ease;
+
+}
+
+.slide{
+
+    flex:0 0 100%;
+
+}
+
+.slide img{
+
+    display:block;
+
     width:100%;
 
-    transition:transform .6s ease;
+    aspect-ratio:16/9;
 
-    touch-action:pan-y;
-
-}
-
-.slider{
-
-    width:calc(100% - 50px);
-
-    margin:30px auto 0;
-
-    overflow:hidden;
-
-    border-radius:20px;
+    object-fit:cover;
 
 }
-
 /*==============================
 本文
 ==============================*/
