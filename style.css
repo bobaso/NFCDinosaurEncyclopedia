@@ -114,7 +114,17 @@ background-position:center top;
 
 }
 
+.slider{
 
+    width:calc(100% - 50px);
+
+    margin:30px auto 0;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+}
 
 /*==============================
 本文
