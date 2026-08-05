@@ -263,24 +263,34 @@ body{
     margin:40px auto;
 
 }
+
+
+/* カード背景 */
+
 .card-bg{
 
     width:100%;
 
+    height:auto;
+
     display:block;
 
-    /*==============================
-カード内コンテンツ配置
-==============================*/
+}
+
+
+
+/* カード上に配置する内容 */
 
 .card-content{
 
     position:absolute;
 
     top:0;
+
     left:0;
 
     width:100%;
+
     height:100%;
 
     display:flex;
@@ -289,5 +299,6 @@ body{
 
     align-items:center;
 
+}
 }
 }
