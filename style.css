@@ -40,14 +40,17 @@ background-position:center top;
 
 .page{
 
-width:100%;
-max-width:430px;
+    width:100%;
+    max-width:430px;
 
-margin:auto;
+    margin:auto;
 
-min-height:4000px;
+    min-height:4000px;
+
+    text-align:center;
 
 }
+
 
 /*==============================
 ロゴ
@@ -55,24 +58,17 @@ min-height:4000px;
 
 .logo{
 
-width:220px;
-height:80px;
+    width:65%;
+    max-width:260px;
+    margin:30px auto;
 
-margin:30px auto;
+}
 
-background:#ffffffaa;
+.logo img{
 
-border:2px dashed #333;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:28px;
-
-font-weight:bold;
+    width:100%;
+    height:auto;
+    display:block;
 
 }
 
