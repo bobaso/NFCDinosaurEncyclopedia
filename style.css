@@ -93,9 +93,11 @@ body{
 
 }
 
-.info-card::before{
+/*==============================
+カードラベル
+==============================*/
 
-    content:"DINOSAUR DATA";
+.card-label{
 
     position:absolute;
 
@@ -107,19 +109,54 @@ body{
 
     background:#fff;
 
-    color:#666;
-
-    font-size:12px;
-    font-weight:bold;
+    clip-path:polygon(0 0,100% 0,80% 100%,0 100%);
 
     display:flex;
+
     align-items:center;
 
-    justify-content:flex-start;
+    padding-left:24px;
 
-    padding-left:28px;
+    z-index:10;
 
-    clip-path:polygon(0 0,100% 0,80% 100%,0 100%);
+}
+
+.card-label span{
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    color:#666;
+
+    white-space:nowrap;
+
+}
+
+.card-label span::after{
+
+    content:"|";
+
+    animation:blink .8s infinite;
+
+}
+
+@keyframes blink{
+
+    0%,50%{
+
+        opacity:1;
+
+    }
+
+    51%,100%{
+
+        opacity:0;
+
+    }
+
 }
 
 /*==============================
