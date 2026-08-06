@@ -17,3 +17,33 @@ window.addEventListener("load", () => {
     }, 300);
 
 });
+
+/*========================================
+DINOSAUR DATA タイピング
+========================================*/
+
+const typing = document.getElementById("typing");
+
+const text = "DINOSAUR DATA";
+
+function typeWriter(){
+
+    let i = 0;
+
+    typing.textContent = "";
+
+    const timer = setInterval(()=>{
+
+        typing.textContent += text.charAt(i);
+
+        i++;
+
+        if(i >= text.length){
+
+            clearInterval(timer);
+
+        }
+
+    },80);
+
+}
