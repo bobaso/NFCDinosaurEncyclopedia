@@ -1,29 +1,37 @@
 /*========================================
 フェードインアニメーション
 ========================================*/
+
 window.addEventListener("load", () => {
 
     const logo = document.querySelector(".logo");
     const card = document.querySelector(".info-card");
 
-    // 最初にロゴを表示
+    // ロゴ表示
     logo.classList.add("show");
 
-    // ロゴ表示後にカードを表示
+    // ロゴ表示後にカード表示
     setTimeout(() => {
 
         card.classList.add("show");
 
+        // カード表示が始まって少ししてから文字入力
+        setTimeout(() => {
+
+            typeWriter();
+
+        }, 450);
+
     }, 300);
 
 });
+
 
 /*========================================
 DINOSAUR DATA タイピング
 ========================================*/
 
 const typing = document.getElementById("typing");
-
 const text = "DINOSAUR DATA";
 
 function typeWriter(){
@@ -32,7 +40,7 @@ function typeWriter(){
 
     typing.textContent = "";
 
-    const timer = setInterval(()=>{
+    const timer = setInterval(() => {
 
         typing.textContent += text.charAt(i);
 
@@ -44,6 +52,6 @@ function typeWriter(){
 
         }
 
-    },80);
+    }, 80);
 
 }
