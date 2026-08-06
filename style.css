@@ -37,7 +37,7 @@ body{
 
     margin:0 auto;
 
-    min-height:4000px;
+    padding-bottom:80px;
 
 }
 
@@ -80,7 +80,7 @@ body{
 
     border:3px solid #fff;
 
-    border-radius:30px;
+    border-radius:16px;
 
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
@@ -119,13 +119,7 @@ body{
 
 .card-content{
 
-    padding:70px 0 70px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
+    padding:45px 0 55px;
 
 }
 
