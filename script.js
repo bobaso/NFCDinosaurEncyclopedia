@@ -1,7 +1,7 @@
 /*========================================
 フェードインアニメーション
 ========================================*/
-
+　
 window.addEventListener("load",()=>{
 
     const loading=document.getElementById("loading");
