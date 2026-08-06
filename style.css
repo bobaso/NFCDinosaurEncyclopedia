@@ -78,9 +78,9 @@ body{
 
 .slider{
 
-    width:70%;
+    width:75%;
 
-    margin-top:65px;
+    margin:40px auto 0;
 
     overflow:hidden;
 
@@ -99,6 +99,7 @@ body{
 
 }
 
+
 .slide{
 
     flex:0 0 100%;
@@ -108,38 +109,11 @@ body{
 
 .slide img{
 
+    width:100%;
+
+    height:auto;
+
     display:block;
-
-    width:100%;
-
-    aspect-ratio:16 / 9;
-
-    object-fit:cover;
-
-}
-
-
-/*==============================
-画像が無い時
-==============================*/
-
-.placeholder{
-
-    width:100%;
-
-    aspect-ratio:16 / 9;
-
-    background:#e5e5e5;
-
-    border:3px dashed #777;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:22px;
 
 }
 
