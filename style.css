@@ -123,13 +123,16 @@ body{
 
 .card-label span{
 
+    position:relative;
+    left:-8px;
+
     font-size:12px;
 
-    font-weight:bold;
+    font-weight:900;
 
     letter-spacing:2px;
 
-    color:#666;
+    color:#444;
 
     white-space:nowrap;
 
