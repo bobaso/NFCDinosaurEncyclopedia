@@ -115,7 +115,7 @@ body{
 
     align-items:center;
 
-    padding-left:24px;
+    padding-left:16px;
 
     z-index:10;
 
@@ -275,7 +275,6 @@ body{
     .photo{
 
         width:70%;
-
         margin-top:70px;
 
     }
@@ -283,7 +282,6 @@ body{
     .contents{
 
         width:80%;
-
         margin-top:35px;
 
     }
@@ -297,6 +295,10 @@ body{
     .contents p{
 
         font-size:16px;
+
+    }
+
+}
 
 /*==============================
 ルビ
@@ -315,9 +317,5 @@ rt{
     color:#666;
 
     font-weight:normal;
-
-}
-
-    }
 
 }
