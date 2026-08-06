@@ -298,6 +298,26 @@ body{
 
         font-size:16px;
 
+/*==============================
+ルビ
+==============================*/
+
+ruby{
+
+    ruby-align:center;
+
+}
+
+rt{
+
+    font-size:0.55em;
+
+    color:#666;
+
+    font-weight:normal;
+
+}
+
     }
 
 }
