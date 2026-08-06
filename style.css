@@ -95,14 +95,11 @@ body{
 
     position:absolute;
 
-    width:320px;
-
-    height:320px;
+    width:180px;
+    height:180px;
 
     border-radius:50%;
-
     border:6px solid transparent;
-
     border-top:6px solid #000;
 
     animation:spin 1.2s linear infinite;
