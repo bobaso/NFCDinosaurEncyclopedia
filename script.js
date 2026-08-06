@@ -1,5 +1,5 @@
 /*========================================
-フェードイン
+フェードインアニメーション
 ========================================*/
 
 const fadeItems = document.querySelectorAll(".fadein");
@@ -20,4 +20,8 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.2
 });
 
-fadeItems.forEach(item => observer.observe(item));
+fadeItems.forEach(item => {
+
+    observer.observe(item);
+
+});
