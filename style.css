@@ -25,7 +25,107 @@ body{
     background-size:100% auto;
 
 }
+/*==============================
+スタート画面
+==============================*/
 
+#loading{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    transition:opacity .8s;
+
+}
+
+#loading.hide{
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+
+/*==============================
+ロゴ
+==============================*/
+
+.loader{
+
+    position:relative;
+
+    width:275px;
+
+    height:200px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.loader img{
+
+    width:100%;
+
+    height:auto;
+
+    display:block;
+
+}
+
+
+/*==============================
+円形ローディング
+==============================*/
+
+.loader-ring{
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    border:6px solid transparent;
+
+    border-top:6px solid #000;
+
+    animation:spin 1.2s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
 /*==============================
 ページ全体
 ==============================*/
