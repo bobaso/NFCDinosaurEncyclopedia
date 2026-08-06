@@ -1,27 +1,19 @@
 /*========================================
 フェードインアニメーション
 ========================================*/
+window.addEventListener("load", () => {
 
-const fadeItems = document.querySelectorAll(".fadein");
+    const logo = document.querySelector(".logo");
+    const card = document.querySelector(".info-card");
 
-const observer = new IntersectionObserver((entries) => {
+    // 最初にロゴを表示
+    logo.classList.add("show");
 
-    entries.forEach(entry => {
+    // ロゴ表示後にカードを表示
+    setTimeout(() => {
 
-        if (entry.isIntersecting) {
+        card.classList.add("show");
 
-            entry.target.classList.add("show");
-
-        }
-
-    });
-
-}, {
-    threshold: 0.2
-});
-
-fadeItems.forEach(item => {
-
-    observer.observe(item);
+    }, 900);
 
 });
