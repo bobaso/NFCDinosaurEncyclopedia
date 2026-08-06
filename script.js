@@ -2,27 +2,33 @@
 フェードインアニメーション
 ========================================*/
 
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
-    const logo = document.querySelector(".logo");
-    const card = document.querySelector(".info-card");
+    const loading=document.getElementById("loading");
+    const logo=document.querySelector(".logo");
+    const card=document.querySelector(".info-card");
 
-    // ロゴ表示
-    logo.classList.add("show");
+    setTimeout(()=>{
 
-    // ロゴ表示後にカード表示
-    setTimeout(() => {
+        loading.classList.add("hide");
 
-        card.classList.add("show");
+        setTimeout(()=>{
 
-        // カード表示が始まって少ししてから文字入力
-        setTimeout(() => {
+            loading.style.display="none";
 
-            typeWriter();
+            logo.classList.add("show");
 
-        }, 450);
+            setTimeout(()=>{
 
-    }, 300);
+                card.classList.add("show");
+
+                typeWriter();
+
+            },300);
+
+        },800);
+
+    },2000);
 
 });
 
