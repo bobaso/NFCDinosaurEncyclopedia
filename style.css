@@ -95,7 +95,7 @@ body{
 
 .info-card::before{
 
-    content:"";
+    content:"DINOSAUR DATA";
 
     position:absolute;
 
@@ -106,6 +106,15 @@ body{
     height:40px;
 
     background:#fff;
+
+    color:#666;
+
+    font-size:13px;
+    font-weight:bold;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
     clip-path:polygon(0 0,100% 0,82% 100%,0 100%);
 
