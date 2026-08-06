@@ -82,31 +82,6 @@ body{
 
     margin:40px auto 0;
 
-    overflow:hidden;
-
-    border-radius:15px;
-
-}
-
-
-.slides{
-
-    display:flex;
-
-    width:100%;
-
-    transition:transform .5s ease;
-
-}
-
-
-.slide{
-
-    flex:0 0 100%;
-
-}
-
-
 .slide img{
 
     width:100%;
@@ -225,8 +200,6 @@ body{
 /* カード上に配置する内容 */
 
 .card-content{
-
-    position:absolute;
 
     top:0;
 
