@@ -113,15 +113,17 @@ body{
 
 .photo{
 
-    width:72%;
+    width:70%;
 
-    margin-top:70px;
+    margin:70px auto 0;
 
 }
 
 .photo img{
 
     width:100%;
+
+    height:auto;
 
     display:block;
 
