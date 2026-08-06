@@ -138,7 +138,18 @@ body{
     margin:0 auto 40px;
 
 }
+.photo img{
 
+    width:100%;
+    display:block;
+    border-radius:20px;
+
+}
+
+
+/*==============================
+本文
+==============================*/
 .contents{
 
     width:80%;
@@ -149,17 +160,7 @@ body{
 
 }
 
-/*==============================
-本文
-==============================*/
 
-.contents{
-
-    width:80%;
-
-    text-align:center;
-
-}
 
 .contents h1{
 
