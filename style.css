@@ -210,11 +210,11 @@ body{
 
     opacity:0;
 
-    transform:translateY(40px);
+    transform:translateY(30px);
 
     transition:
-        opacity .8s ease,
-        transform .8s ease;
+        opacity .45s ease,
+        transform .45s ease;
 
 }
 
