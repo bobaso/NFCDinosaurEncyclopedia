@@ -14,6 +14,6 @@ window.addEventListener("load", () => {
 
         card.classList.add("show");
 
-    }, 900);
+    }, 300);
 
 });
