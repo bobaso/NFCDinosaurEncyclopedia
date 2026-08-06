@@ -75,7 +75,9 @@ body{
 
     width:calc(100% - 40px);
 
-    margin:0 auto 50px;
+    max-width:390px;
+
+    margin:0 auto 60px;
 
 }
 
@@ -83,10 +85,11 @@ body{
 
     width:100%;
 
+    height:auto;
+
     display:block;
 
 }
-
 
 /*==============================
 カード内
@@ -96,7 +99,11 @@ body{
 
     position:absolute;
 
-    inset:0;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
 
     display:flex;
 
@@ -113,9 +120,9 @@ body{
 
 .photo{
 
-    width:70%;
+    width:68%;
 
-    margin:70px auto 0;
+    margin-top:75px;
 
 }
 
@@ -127,20 +134,19 @@ body{
 
     display:block;
 
-    border-radius:15px;
+    border-radius:18px;
 
 }
 
-
 /*==============================
-タイトル
+本文
 ==============================*/
 
 .contents{
 
-    width:78%;
+    width:80%;
 
-    margin-top:30px;
+    margin-top:40px;
 
     text-align:center;
 
@@ -148,9 +154,9 @@ body{
 
 .contents h1{
 
-    font-size:30px;
+    font-size:32px;
 
-    line-height:1.3;
+    line-height:1.35;
 
     margin-bottom:18px;
 
@@ -160,24 +166,19 @@ body{
 
     display:block;
 
+    margin-top:6px;
+
     font-size:20px;
 
     color:#666;
 
-    margin-top:5px;
-
 }
-
-
-/*==============================
-本文
-==============================*/
 
 .contents p{
 
-    font-size:16px;
+    font-size:17px;
 
-    line-height:1.9;
+    line-height:2.0;
 
 }
 
@@ -211,19 +212,13 @@ body{
 スマホ微調整
 ==============================*/
 
-@media(max-width:430px){
-
-    .logo{
-
-        width:84%;
-
-    }
+@media (max-width:430px){
 
     .photo{
 
-        width:74%;
+        width:70%;
 
-        margin-top:60px;
+        margin-top:70px;
 
     }
 
@@ -231,25 +226,19 @@ body{
 
         width:80%;
 
-        margin-top:25px;
+        margin-top:35px;
 
     }
 
     .contents h1{
 
-        font-size:28px;
-
-    }
-
-    .contents h1 span{
-
-        font-size:18px;
+        font-size:30px;
 
     }
 
     .contents p{
 
-        font-size:15px;
+        font-size:16px;
 
     }
 
