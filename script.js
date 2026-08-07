@@ -107,7 +107,7 @@ function typeWriter(){
 
 }
 const habitatTyping = document.getElementById("habitatTyping");
-const habitatText = "Habitat range";
+const habitatText = "HABITAT RANGE";
 
 function habitatTypeWriter(){
 
