@@ -658,109 +658,108 @@ rt{
 
 }
 /*========================================*
-* 2枚目・3枚目カード
-* 横スクロール＋カードスタック
+* 2枚目・3枚目 カードスタック
 *========================================*/
 
 .card-stack{
 
     position:relative;
 
-    width:100%;
-    max-width:430px;
+    width:calc(100% - 40px);
+
+    max-width:390px;
 
     margin:40px auto 80px;
 
-    display:flex;
+    /*
+     * 2枚目のカードの高さを
+     * スタック全体の高さとして確保
+     */
+    min-height:700px;
 
-    overflow-x:auto;
-    overflow-y:visible;
-
-    padding:0 20px;
-
-    scroll-snap-type:x mandatory;
-
-    scrollbar-width:none;
-
-    -webkit-overflow-scrolling:touch;
-}
-
-.card-stack::-webkit-scrollbar{
-    display:none;
 }
 
 
 /*========================================*
-* 2枚目・3枚目カード共通
+* スタック内カード共通
 *========================================*/
 
 .card-stack .info-card{
 
-    flex:0 0 calc(100vw - 60px);
+    position:absolute;
 
-    width:calc(100vw - 60px);
+    top:0;
+    left:0;
 
-    max-width:390px;
+    width:100%;
 
-    margin:40px 0 80px;
+    max-width:none;
 
-    scroll-snap-align:center;
+    margin:0;
 
-    scroll-snap-stop:always;
+    transition:
+        transform .45s ease,
+        opacity .45s ease;
+
 }
 
 
 /*========================================*
-* 2枚目
+* 2枚目カード
 *========================================*/
 
 .card-stack .card-second{
 
-    position:relative;
-
     z-index:2;
 
-    flex-shrink:0;
+    transform:translate(0,0);
+
 }
 
 
 /*========================================*
-* 3枚目
+* 3枚目カード
+*
+* 2枚目の右下から少し見える
 *========================================*/
 
 .card-stack .card-third{
 
-    position:relative;
-
     z-index:1;
 
-    margin-left:-28px !important;
-
     transform:
-        translateY(-18px)
-        rotate(4deg);
+        translate(18px,18px)
+        rotate(3deg);
 
     transform-origin:center center;
 
-    flex-shrink:0;
-
-    transition:
-        transform .4s ease,
-        z-index .2s ease;
 }
 
 
 /*========================================*
-* 3枚目を表示している状態
+* 3枚目を表示した状態
 *========================================*/
+
+.card-stack.show-third .card-second{
+
+    transform:
+        translateX(-105%);
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
 
 .card-stack.show-third .card-third{
 
     z-index:3;
 
     transform:
-        translateY(0)
+        translate(0,0)
         rotate(0deg);
+
 }
 
 
@@ -772,30 +771,30 @@ rt{
 
     .card-stack{
 
-        width:100%;
+        width:calc(100% - 40px);
 
-        padding-left:20px;
-        padding-right:20px;
+        max-width:390px;
 
-        margin-top:40px;
+        min-height:700px;
+
+        margin:40px auto 80px;
+
     }
+
 
     .card-stack .info-card{
 
-        flex:0 0 calc(100vw - 60px);
+        width:100%;
 
-        width:calc(100vw - 60px);
-
-        max-width:390px;
     }
+
 
     .card-stack .card-third{
 
-        margin-left:-28px !important;
-
         transform:
-            translateY(-18px)
-            rotate(4deg);
+            translate(14px,14px)
+            rotate(3deg);
+
     }
 
 }
