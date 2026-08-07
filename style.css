@@ -518,3 +518,33 @@ rt{
     font-weight:normal;
 
 }
+
+/*==============================
+生息地カード
+==============================*/
+
+.habitat-photo{
+
+    width:90%;
+
+    max-width:340px;
+
+    margin:10px auto 30px;
+
+}
+
+.habitat-photo img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:12px;
+
+}
+
+.habitat-photo + .contents{
+
+    margin-top:0;
+
+}
