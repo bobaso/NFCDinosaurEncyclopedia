@@ -371,9 +371,11 @@ body::after{
 
 .photo{
 
-    width:80%;
+    width:90%;
 
-    margin:0 auto 35px;
+    max-width:340px;
+
+    margin:0 auto 30px;
 
 }
 
@@ -381,11 +383,9 @@ body::after{
 
     width:100%;
 
-    height:auto;
-
     display:block;
 
-    border-radius:20px;
+    border-radius:12px;
 
 }
 
@@ -466,12 +466,15 @@ body::after{
 
 @media (max-width:430px){
 
-    .photo{
+ .photo{
 
-        width:70%;
-        margin-top:70px;
+    width:90%;
 
-    }
+    max-width:340px;
+
+    margin:0 auto 30px;
+
+}
 
     .contents{
 
