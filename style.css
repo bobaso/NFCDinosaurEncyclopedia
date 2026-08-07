@@ -611,12 +611,6 @@ rt{
 
 @media (max-width:430px){
 
-    .info-card:has(.habitat-title) .card-content{
-
-        padding-top:0 !important;
-
-    }
-
     .habitat-title{
 
         margin:0 !important;
