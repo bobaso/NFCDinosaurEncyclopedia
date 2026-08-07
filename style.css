@@ -657,274 +657,32 @@ rt{
     }
 
 }
-
-/*==============================*
-* 2枚目・3枚目 カードスタック
-*==============================*/
+/*========================================*
+* 2枚目・3枚目カード
+* 横スクロール＋カードスタック
+*========================================*/
 
 .card-stack{
 
     position:relative;
 
     width:100%;
-
     max-width:430px;
 
     margin:40px auto 80px;
 
-    padding:0 20px;
-
-}
-
-
-/*==============================*
-* スタック内のカード
-*==============================*/
-
-.card-stack .info-card{
-
-    width:100%;
-
-    max-width:390px;
-
-    margin:0;
-
-}
-
-
-/*==============================*
-* 2枚目カード
-*==============================*/
-
-.card-stack .info-card:nth-child(1){
-
-    position:relative;
-
-    z-index:2;
-
-}
-
-
-/*==============================*
-* 3枚目カード
-*==============================*/
-
-.card-stack .info-card:nth-child(2){
-
-    position:absolute;
-
-    top:18px;
-
-    left:32px;
-
-    z-index:1;
-
-    transform:rotate(4deg);
-
-}
-
-
-/*==============================*
-* 横スクロール領域
-*==============================*/
-
-.card-scroll{
-
-    width:100%;
-
-    overflow-x:auto;
-
-    overflow-y:visible;
-
-    scroll-snap-type:x mandatory;
-
-    scrollbar-width:none;
-
-    -webkit-overflow-scrolling:touch;
-}
-
-
-/* Chrome / Safari のスクロールバーを消す */
-
-.card-scroll::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-
-/*==============================*
-* スクロールするカード
-*==============================*/
-
-.card-scroll .info-card{
-
-    flex:0 0 100%;
-
-    scroll-snap-align:start;
-}
-/*==============================*
-* 2枚目・3枚目 カードスタック
-*==============================*/
-
-.card-stack{
-
-    position:relative;
-
-    width:calc(100% - 40px);
-
-    max-width:390px;
-
-    margin:40px auto 80px;
-
-    /* 横方向のスワイプ */
-    overflow-x:auto;
-
-    overflow-y:visible;
-
     display:flex;
 
-    scroll-snap-type:x mandatory;
-
-    -webkit-overflow-scrolling:touch;
-
-    scrollbar-width:none;
-
-    /* カードが少し横に出ても切れないようにする */
-    padding:0 20px 20px;
-
-}
-
-
-/* Chrome / Safari */
-
-.card-stack::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-
-/*==============================*
-* スタック内カード
-*==============================*/
-
-.card-stack .info-card{
-
-    flex:0 0 100%;
-
-    width:100%;
-
-    max-width:none;
-
-    margin:0;
-
-    scroll-snap-align:start;
-
-    scroll-snap-stop:always;
-
-}
-
-
-/*==============================*
-* 2枚目
-*==============================*/
-
-.card-second{
-
-    position:relative;
-
-    z-index:2;
-
-}
-
-
-/*==============================*
-* 3枚目
-*==============================*/
-
-.card-third{
-
-    position:relative;
-
-    z-index:1;
-
-    margin-left:-35px !important;
-
-    transform:rotate(4deg);
-
-}
-
-
-/*==============================*
-* 3枚目のカード内容
-*==============================*/
-
-.card-third .card-content{
-
-    min-height:400px;
-
-}
-
-
-/*==============================*
-* 横スワイプ中
-*==============================*/
-
-.card-stack.is-swiping .card-third{
-
-    transform:rotate(0deg);
-
-}
-
-
-/*==============================*
-* スマホ
-*==============================*/
-
-@media (max-width:430px){
-
-    .card-stack{
-
-        width:calc(100% - 40px);
-
-        padding:0 15px 20px;
-
-    }
-
-    .card-stack .info-card{
-
-        flex:0 0 100%;
-
-    }
-
-    .card-third{
-
-        margin-left:-28px !important;
-
-        transform:rotate(4deg);
-
-    }
-
-}
-
-/*==============================*
-* 2枚目・3枚目カード用
-*==============================*/
-
-.card-stack{
-    position:relative;
-
-    width:100%;
-
-    margin:0 auto;
-
     overflow-x:auto;
     overflow-y:visible;
 
+    padding:0 20px;
+
     scroll-snap-type:x mandatory;
 
     scrollbar-width:none;
+
+    -webkit-overflow-scrolling:touch;
 }
 
 .card-stack::-webkit-scrollbar{
@@ -932,63 +690,112 @@ rt{
 }
 
 
-/*==============================*
-* スタック内のカード
-*==============================*/
+/*========================================*
+* 2枚目・3枚目カード共通
+*========================================*/
 
 .card-stack .info-card{
 
-    flex:0 0 calc(100% - 40px);
+    flex:0 0 calc(100vw - 60px);
 
-    scroll-snap-align:center;
+    width:calc(100vw - 60px);
+
+    max-width:390px;
 
     margin:40px 0 80px;
 
+    scroll-snap-align:center;
+
+    scroll-snap-stop:always;
 }
 
 
-/*==============================*
-* 3枚目を少し右上にずらす
-*==============================*/
+/*========================================*
+* 2枚目
+*========================================*/
 
-.card-stack .info-card:nth-child(2){
-
-    transform:
-        translateX(-25px)
-        translateY(-18px);
-
-    z-index:1;
-}
-
-
-/* 2枚目を前面 */
-.card-stack .info-card:nth-child(1){
+.card-stack .card-second{
 
     position:relative;
 
     z-index:2;
+
+    flex-shrink:0;
 }
 
 
-/*==============================*
+/*========================================*
+* 3枚目
+*========================================*/
+
+.card-stack .card-third{
+
+    position:relative;
+
+    z-index:1;
+
+    margin-left:-28px !important;
+
+    transform:
+        translateY(-18px)
+        rotate(4deg);
+
+    transform-origin:center center;
+
+    flex-shrink:0;
+
+    transition:
+        transform .4s ease,
+        z-index .2s ease;
+}
+
+
+/*========================================*
+* 3枚目を表示している状態
+*========================================*/
+
+.card-stack.show-third .card-third{
+
+    z-index:3;
+
+    transform:
+        translateY(0)
+        rotate(0deg);
+}
+
+
+/*========================================*
 * スマホ
-*==============================*/
+*========================================*/
 
 @media (max-width:430px){
 
     .card-stack{
+
+        width:100%;
 
         padding-left:20px;
         padding-right:20px;
 
+        margin-top:40px;
     }
 
     .card-stack .info-card{
 
         flex:0 0 calc(100vw - 60px);
 
-        max-width:390px;
+        width:calc(100vw - 60px);
 
+        max-width:390px;
+    }
+
+    .card-stack .card-third{
+
+        margin-left:-28px !important;
+
+        transform:
+            translateY(-18px)
+            rotate(4deg);
     }
 
 }
