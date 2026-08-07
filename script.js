@@ -141,4 +141,28 @@ function habitatTypeWriter(){
 
     }, 80);
 
+    /*========================================*
+* 2枚目・3枚目 横スクロール
+*========================================*/
+
+const cardStack = document.querySelector(".card-stack");
+
+if(cardStack){
+
+    cardStack.addEventListener("scroll", () => {
+
+        if(cardStack.scrollLeft > 80){
+
+            cardStack.classList.add("show-third");
+
+        }else{
+
+            cardStack.classList.remove("show-third");
+
+        }
+
+    });
+
+}
+
 }
