@@ -518,22 +518,42 @@ rt{
     font-weight:normal;
 
 }
-
 /*==============================
 生息地カード
 ==============================*/
 
-/*==============================
-生息地カード
-==============================*/
+/* 生息地カードのタイトル */
+.habitat-title{
 
+    width:80%;
+
+    margin:0 auto;
+
+    text-align:center;
+
+}
+
+.habitat-title h1{
+
+    font-size:32px;
+
+    line-height:1.35;
+
+    margin:0 0 5px;
+
+}
+
+
+/* 生息地分布図 */
 .habitat-photo{
 
     width:90%;
 
     max-width:340px;
 
-    margin:0 auto 10px;
+    margin:0 auto 5px;
+
+    transform:none;
 
 }
 
@@ -547,8 +567,45 @@ rt{
 
 }
 
-.habitat-photo + .contents{
 
-    margin-top:0;
+/* 生息地本文 */
+.habitat-text{
+
+    width:80%;
+
+    margin:0 auto;
+
+    text-align:center;
+
+}
+
+.habitat-text p{
+
+    font-size:17px;
+
+    line-height:2.1;
+
+    margin:0;
+
+}
+
+
+/*==============================
+スマホ
+==============================*/
+
+@media (max-width:430px){
+
+    .habitat-title h1{
+
+        font-size:30px;
+
+    }
+
+    .habitat-text p{
+
+        font-size:16px;
+
+    }
 
 }
