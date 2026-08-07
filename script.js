@@ -222,136 +222,109 @@ function habitatTypeWriter() {
 * 2枚目・3枚目カード スワイプ
 *========================================*/
 
-const cardStack =
-    document.getElementById("cardStack");
+const cardStack = document.getElementById("cardStack");
 
-
-if (cardStack) {
-
+if(cardStack){
 
     let startX = 0;
-
     let startY = 0;
-
-    let currentX = 0;
-
-    let currentY = 0;
 
     let isDragging = false;
 
 
-    /*==============================
-    * タッチ開始
-    *==============================*/
+    /*====================================
+    * スワイプ開始
+    *====================================*/
 
-    cardStack.addEventListener("touchstart", (e) => {
+    cardStack.addEventListener("touchstart", (e)=>{
 
         const touch = e.touches[0];
 
         startX = touch.clientX;
-
         startY = touch.clientY;
-
-        currentX = startX;
-
-        currentY = startY;
 
         isDragging = true;
 
-    }, {
-        passive: true
-    });
+    }, {passive:true});
 
 
-    /*==============================
+    /*====================================
     * 指を動かす
-    *==============================*/
+    *====================================*/
 
-    cardStack.addEventListener("touchmove", (e) => {
+    cardStack.addEventListener("touchmove", (e)=>{
 
-        if (!isDragging) {
+        if(!isDragging) return;
 
-            return;
-
-        }
-
-        const touch = e.touches[0];
-
-        currentX = touch.clientX;
-
-        currentY = touch.clientY;
-
-    }, {
-        passive: true
-    });
+    }, {passive:true});
 
 
-    /*==============================
-    * 指を離す
-    *==============================*/
+    /*====================================
+    * スワイプ終了
+    *====================================*/
 
-    cardStack.addEventListener("touchend", () => {
+    cardStack.addEventListener("touchend", (e)=>{
 
-        if (!isDragging) {
-
-            return;
-
-        }
-
+        if(!isDragging) return;
 
         isDragging = false;
 
+        const touch = e.changedTouches[0];
 
-        const diffX =
-            currentX - startX;
+        const endX = touch.clientX;
+        const endY = touch.clientY;
 
-        const diffY =
-            currentY - startY;
-
-
-        /*------------------------------
-        * 縦方向の移動が大きい場合は
-        * スワイプ処理しない
-        *------------------------------*/
-
-        if (Math.abs(diffY) > Math.abs(diffX)) {
-
-            return;
-
-        }
+        const diffX = endX - startX;
+        const diffY = endY - startY;
 
 
-        /*------------------------------
-        * 50px未満は無視
-        *------------------------------*/
+        /*================================
+        * 縦スクロールを優先
+        *
+        * 横方向の動きが縦方向より
+        * 大きい場合だけスワイプ
+        *================================*/
 
-        if (Math.abs(diffX) < 50) {
+        if(Math.abs(diffX) < Math.abs(diffY)){
 
             return;
 
         }
 
 
-        /*------------------------------
+        /*================================
+        * 50px未満なら無視
+        *================================*/
+
+        if(Math.abs(diffX) < 50){
+
+            return;
+
+        }
+
+
+        /*================================
         * 左スワイプ
+        *
         * 2枚目 → 3枚目
-        *------------------------------*/
+        *================================*/
 
-        if (diffX < 0) {
+        if(diffX < 0){
 
-            cardStack.classList.add("show-third");
+            cardStack.classList.add("swiped");
 
         }
 
 
-        /*------------------------------
+        /*================================
         * 右スワイプ
+        *
         * 3枚目 → 2枚目
-        *------------------------------*/
+        *================================*/
 
-        if (diffX > 0) {
+        if(diffX > 0){
 
-            cardStack.classList.remove("show-third");
+            cardStack.classList.remove("swiped");
 
         }
 
