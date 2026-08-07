@@ -522,7 +522,6 @@ rt{
 生息地カード
 ==============================*/
 
-/* 生息地カードのタイトル */
 .habitat-title{
 
     width:80%;
@@ -539,12 +538,14 @@ rt{
 
     line-height:1.35;
 
-    margin:0 0 5px;
-
+    margin:0;
 }
 
 
-/* 生息地分布図 */
+/*==============================
+生息地分布図
+==============================*/
+
 .habitat-photo{
 
     width:90%;
@@ -568,7 +569,10 @@ rt{
 }
 
 
-/* 生息地本文 */
+/*==============================
+生息地本文
+==============================*/
+
 .habitat-text{
 
     width:80%;
@@ -589,28 +593,69 @@ rt{
 
 }
 
+
 /*==============================
-生息地カード上部の余白調整
+生息地カード上部
 ==============================*/
 
 .info-card:has(.habitat-title) .card-content{
-    padding-top:5px;
+
+    padding-top:0 !important;
+
 }
+
+
 /*==============================
 スマホ
 ==============================*/
 
 @media (max-width:430px){
 
+    .info-card:has(.habitat-title) .card-content{
+
+        padding-top:0 !important;
+
+    }
+
+    .habitat-title{
+
+        margin:0 !important;
+
+    }
+
     .habitat-title h1{
 
         font-size:30px;
+
+        margin:0 !important;
+
+    }
+
+    .habitat-photo{
+
+        width:90%;
+
+        max-width:340px;
+
+        margin:0 auto 5px !important;
+
+        transform:none;
+
+    }
+
+    .habitat-text{
+
+        margin:0 auto;
 
     }
 
     .habitat-text p{
 
         font-size:16px;
+
+        line-height:2.1;
+
+        margin:0;
 
     }
 
