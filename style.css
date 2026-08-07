@@ -369,27 +369,25 @@ body::after{
 
 }
 
-/*==============================
-画像
-==============================*/
-
 .photo{
 
-    width:82%;
-
-    max-width:320px;
+    width:80%;
 
     margin:0 auto 35px;
 
 }
+
 .photo img{
 
     width:100%;
+
+    height:auto;
+
     display:block;
+
     border-radius:20px;
 
 }
-
 
 /*==============================
 本文
