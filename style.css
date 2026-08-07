@@ -445,11 +445,11 @@ body::after{
 
     opacity:0;
 
-    transform:translateY(30px);
+    transform:translateY(40px);
 
     transition:
-        opacity .45s ease,
-        transform .45s ease;
+        opacity .8s ease,
+        transform .8s ease;
 
 }
 
