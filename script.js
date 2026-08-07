@@ -6,7 +6,7 @@ window.addEventListener("load",()=>{
 
     const loading = document.getElementById("loading");
     const logo = document.querySelector(".logo");
-    const card = document.querySelector(".info-card");
+    const cards = document.querySelectorAll(".info-card");
     const percent = document.getElementById("percent");
 
     let value = 0;
@@ -14,7 +14,6 @@ window.addEventListener("load",()=>{
     const counter = setInterval(()=>{
 
         value++;
-
         percent.textContent = value;
 
         if(value >= 100){
@@ -25,15 +24,25 @@ window.addEventListener("load",()=>{
 
             setTimeout(()=>{
 
-                loading.style.display = "none";
+                loading.style.display="none";
 
                 logo.classList.add("show");
 
                 setTimeout(()=>{
 
-                    card.classList.add("show");
+                    cards.forEach((card,index)=>{
 
-                    typeWriter();
+                        setTimeout(()=>{
+
+                            card.classList.add("show");
+
+                            if(index===0){
+                                typeWriter();
+                            }
+
+                        },index*250);
+
+                    });
 
                 },300);
 
