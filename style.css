@@ -21,8 +21,78 @@ body{
 
     color:#222;
 
-    background:url("images/background.png") no-repeat center top;
-    background-size:100% auto;
+    position:relative;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+}
+/*==============================
+背景
+==============================*/
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:-2;
+
+    background:
+        linear-gradient(
+            135deg,
+            #003c82 0%,
+            #82c8c8 100%
+        );
+
+}
+/*==============================
+方眼
+==============================*/
+
+body::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:
+
+        repeating-linear-gradient(
+
+            to right,
+
+            rgba(255,255,255,.55) 0,
+
+            rgba(255,255,255,.55) 1.5px,
+
+            transparent 1.5px,
+
+            transparent 36px
+
+        ),
+
+        repeating-linear-gradient(
+
+            to bottom,
+
+            rgba(255,255,255,.55) 0,
+
+            rgba(255,255,255,.55) 1.5px,
+
+            transparent 1.5px,
+
+            transparent 36px
+
+        );
 
 }
 /*==============================
