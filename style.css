@@ -752,14 +752,13 @@ rt{
 }
 
 
-.card-stack.show-third .card-third{
+.card-stack.swiped .card-third{
 
     z-index:3;
 
     transform:
-        translate(0,0)
+        translateY(0)
         rotate(0deg);
-
 }
 
 
