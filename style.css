@@ -375,9 +375,11 @@ body::after{
 
 .photo{
 
-    width:68%;
+    width:82%;
 
-    margin:0 auto 40px;
+    max-width:320px;
+
+    margin:0 auto 35px;
 
 }
 .photo img{
