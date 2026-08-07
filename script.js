@@ -30,19 +30,42 @@ window.addEventListener("load",()=>{
 
                 setTimeout(()=>{
 
-                    cards.forEach((card,index)=>{
+// 1枚目だけ最初に表示
+cards[0].classList.add("show");
 
-                        setTimeout(()=>{
+typeWriter();
 
-                            card.classList.add("show");
 
-                            if(index===0){
-                                typeWriter();
-                            }
+// 2枚目以降はスクロールで表示
+const observer = new IntersectionObserver((entries)=>{
 
-                        },index*250);
+    entries.forEach(entry=>{
 
-                    });
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+
+// 2枚目以降を監視
+cards.forEach((card,index)=>{
+
+    if(index > 0){
+
+        observer.observe(card);
+
+    }
+
+});
 
                 },300);
 
