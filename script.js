@@ -106,3 +106,27 @@ function typeWriter(){
     }, 80);
 
 }
+const habitatTyping = document.getElementById("habitatTyping");
+const habitatText = "Habitat range";
+
+function habitatTypeWriter(){
+
+    let i = 0;
+
+    habitatTyping.textContent = "";
+
+    const timer = setInterval(() => {
+
+        habitatTyping.textContent += habitatText.charAt(i);
+
+        i++;
+
+        if(i >= habitatText.length){
+
+            clearInterval(timer);
+
+        }
+
+    }, 80);
+
+}
