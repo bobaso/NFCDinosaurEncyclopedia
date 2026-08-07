@@ -594,7 +594,7 @@ rt{
 ==============================*/
 
 .info-card:has(.habitat-title) .card-content{
-    padding-top:15px;
+    padding-top:5px;
 }
 /*==============================
 スマホ
