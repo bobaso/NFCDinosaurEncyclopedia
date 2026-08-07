@@ -241,20 +241,20 @@ body::after{
 
     width:82%;
 
-    max-width:340px;
+    max-width:275px;
 
-    margin:35px auto;
+    margin:40px auto 30px;
 
 }
 
 .logo img{
 
     width:100%;
+    height:auto;
 
     display:block;
 
 }
-
 
 /*==============================
 図鑑カード
