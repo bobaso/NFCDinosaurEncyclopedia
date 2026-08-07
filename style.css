@@ -657,3 +657,109 @@ rt{
     }
 
 }
+
+/*==============================*
+* 2枚目・3枚目 カードスタック
+*==============================*/
+
+.card-stack{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:430px;
+
+    margin:40px auto 80px;
+
+    padding:0 20px;
+
+}
+
+
+/*==============================*
+* スタック内のカード
+*==============================*/
+
+.card-stack .info-card{
+
+    width:100%;
+
+    max-width:390px;
+
+    margin:0;
+
+}
+
+
+/*==============================*
+* 2枚目カード
+*==============================*/
+
+.card-stack .info-card:nth-child(1){
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/*==============================*
+* 3枚目カード
+*==============================*/
+
+.card-stack .info-card:nth-child(2){
+
+    position:absolute;
+
+    top:18px;
+
+    left:32px;
+
+    z-index:1;
+
+    transform:rotate(4deg);
+
+}
+
+
+/*==============================*
+* 横スクロール領域
+*==============================*/
+
+.card-scroll{
+
+    width:100%;
+
+    overflow-x:auto;
+
+    overflow-y:visible;
+
+    scroll-snap-type:x mandatory;
+
+    scrollbar-width:none;
+
+    -webkit-overflow-scrolling:touch;
+}
+
+
+/* Chrome / Safari のスクロールバーを消す */
+
+.card-scroll::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+/*==============================*
+* スクロールするカード
+*==============================*/
+
+.card-scroll .info-card{
+
+    flex:0 0 100%;
+
+    scroll-snap-align:start;
+}
