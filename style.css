@@ -666,14 +666,13 @@ rt{
     position:relative;
 
     width:calc(100% - 40px);
-
     max-width:390px;
 
     margin:40px auto 80px;
 
     /*
-     * 2枚目のカードの高さを
-     * スタック全体の高さとして確保
+     * 3枚目が後ろに見える分を含めて
+     * カード1枚分の高さを確保
      */
     min-height:700px;
 
@@ -692,7 +691,6 @@ rt{
     left:0;
 
     width:100%;
-
     max-width:none;
 
     margin:0;
@@ -712,7 +710,9 @@ rt{
 
     z-index:2;
 
-    transform:translate(0,0);
+    transform:
+        translate(0,0)
+        rotate(0deg);
 
 }
 
@@ -720,7 +720,8 @@ rt{
 /*========================================*
 * 3枚目カード
 *
-* 2枚目の右下から少し見える
+* 通常時は2枚目の右下から
+* タブのように少し見える
 *========================================*/
 
 .card-stack .card-third{
@@ -728,19 +729,24 @@ rt{
     z-index:1;
 
     transform:
-        translate(18px,18px)
+        translate(14px,14px)
         rotate(3deg);
 
     transform-origin:center center;
+
+    pointer-events:none;
 
 }
 
 
 /*========================================*
-* 3枚目を表示した状態
+* 左スワイプ後
+*
+* 2枚目を左へ移動
+* 3枚目を正面へ
 *========================================*/
 
-.card-stack.show-third .card-second{
+.card-stack.swiped .card-second{
 
     transform:
         translateX(-105%);
@@ -757,8 +763,11 @@ rt{
     z-index:3;
 
     transform:
-        translateY(0)
+        translate(0,0)
         rotate(0deg);
+
+    pointer-events:auto;
+
 }
 
 
