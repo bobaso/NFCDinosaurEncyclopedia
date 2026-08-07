@@ -141,28 +141,115 @@ function habitatTypeWriter(){
 
     }, 80);
 
-    /*========================================*
-* 2枚目・3枚目 横スクロール
+/*========================================*
+* 2枚目・3枚目カード スワイプ
 *========================================*/
 
-const cardStack = document.querySelector(".card-stack");
+const cardStack = document.getElementById("cardStack");
 
 if(cardStack){
 
-    cardStack.addEventListener("scroll", () => {
+    let startX = 0;
+    let startY = 0;
 
-        if(cardStack.scrollLeft > 80){
+    let currentX = 0;
 
-            cardStack.classList.add("show-third");
+    let isDragging = false;
 
-        }else{
 
-            cardStack.classList.remove("show-third");
+    /*==============================
+      タッチ開始
+    ==============================*/
+
+    cardStack.addEventListener("touchstart", (e)=>{
+
+        const touch = e.touches[0];
+
+        startX = touch.clientX;
+        startY = touch.clientY;
+
+        currentX = startX;
+
+        isDragging = true;
+
+    }, {passive:true});
+
+
+    /*==============================
+      指を動かす
+    ==============================*/
+
+    cardStack.addEventListener("touchmove", (e)=>{
+
+        if(!isDragging) return;
+
+        const touch = e.touches[0];
+
+        currentX = touch.clientX;
+
+    }, {passive:true});
+
+
+    /*==============================
+      指を離す
+    ==============================*/
+
+    cardStack.addEventListener("touchend", (e)=>{
+
+        if(!isDragging) return;
+
+        isDragging = false;
+
+        const endX = currentX;
+
+        const diffX = endX - startX;
+
+        const diffY = Math.abs(
+            endX - startX
+        );
+
+
+        /*
+         * 横方向に50px以上動かした場合だけ
+         * スワイプとして判定
+         */
+
+        if(Math.abs(diffX) < 50){
+
+            return;
+
+        }
+
+
+        /*
+         * 左スワイプ
+         *
+         * 2枚目
+         * ↓
+         * 3枚目を表示
+         */
+
+        if(diffX < 0){
+
+            cardStack.classList.add("swiped");
+
+        }
+
+
+        /*
+         * 右スワイプ
+         *
+         * 3枚目
+         * ↓
+         * 2枚目へ戻る
+         */
+
+        if(diffX > 0){
+
+            cardStack.classList.remove("swiped");
 
         }
 
     });
-
-}
 
 }
