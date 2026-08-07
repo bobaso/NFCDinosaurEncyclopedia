@@ -39,17 +39,29 @@ typeWriter();
 // 2枚目以降はスクロールで表示
 const observer = new IntersectionObserver((entries)=>{
 
-    entries.forEach(entry=>{
+entries.forEach(entry=>{
 
-        if(entry.isIntersecting){
+    if(entry.isIntersecting){
 
-            entry.target.classList.add("show");
+        entry.target.classList.add("show");
 
-            observer.unobserve(entry.target);
+        // 2枚目のカードが表示された後に
+        // HABITAT RANGE のタイピングを開始
+        if(entry.target === cards[1]){
+
+            setTimeout(()=>{
+
+                habitatTypeWriter();
+
+            },800);
 
         }
 
-    });
+        observer.unobserve(entry.target);
+
+    }
+
+});
 
 },{
     threshold:0.15
