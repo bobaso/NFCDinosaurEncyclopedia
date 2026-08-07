@@ -4,31 +4,44 @@
 　
 window.addEventListener("load",()=>{
 
-    const loading=document.getElementById("loading");
-    const logo=document.querySelector(".logo");
-    const card=document.querySelector(".info-card");
+    const loading = document.getElementById("loading");
+    const logo = document.querySelector(".logo");
+    const card = document.querySelector(".info-card");
+    const percent = document.getElementById("percent");
 
-    setTimeout(()=>{
+    let value = 0;
 
-        loading.classList.add("hide");
+    const counter = setInterval(()=>{
 
-        setTimeout(()=>{
+        value++;
 
-            loading.style.display="none";
+        percent.textContent = value;
 
-            logo.classList.add("show");
+        if(value >= 100){
+
+            clearInterval(counter);
+
+            loading.classList.add("hide");
 
             setTimeout(()=>{
 
-                card.classList.add("show");
+                loading.style.display = "none";
 
-                typeWriter();
+                logo.classList.add("show");
 
-            },300);
+                setTimeout(()=>{
 
-        },800);
+                    card.classList.add("show");
 
-    },2000);
+                    typeWriter();
+
+                },300);
+
+            },800);
+
+        }
+
+    },20);
 
 });
 
