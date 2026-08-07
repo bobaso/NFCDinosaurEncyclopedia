@@ -660,3 +660,11 @@ rt{
     }
 
 }
+/*==============================
+生息地カードの上側余白を調整
+==============================*/
+
+.info-card:has(.habitat-title) .card-content{
+    margin-top:-60px !important;
+    padding-top:0 !important;
+}
