@@ -881,12 +881,12 @@ rt{
 
     }
 /*========================================*
- * 身長比較エリア
- *========================================*/
+* 身長比較エリア
+*========================================*/
 
 .size-comparison{
 
-    width:112.5%;
+    width:90%;
 
     max-width:340px;
 
@@ -906,7 +906,6 @@ rt{
             #82c8c8 0%,
             #003c82 100%
         );
-
 }
 
 
@@ -924,7 +923,7 @@ rt{
     bottom:35px;
 
     width:100%;
-    
+
     z-index:2;
 
     animation:
@@ -939,6 +938,7 @@ rt{
     display:block;
 
     width:100%;
+
     height:auto;
 
     max-width:none;
@@ -954,6 +954,7 @@ rt{
     position:absolute;
 
     left:20px;
+
     bottom:10px;
 
     width:70px;
@@ -972,6 +973,7 @@ rt{
     display:block;
 
     width:100%;
+
     height:auto;
 }
 
@@ -1026,7 +1028,7 @@ rt{
 
     .size-comparison{
 
-        width:112.5%;
+        width:90%;
 
         max-width:340px;
 
@@ -1036,7 +1038,6 @@ rt{
 
     }
 
-
     .comparison-mosasaurus{
 
         width:100%;
@@ -1044,7 +1045,6 @@ rt{
         bottom:35px;
 
     }
-
 
     .comparison-human{
 
