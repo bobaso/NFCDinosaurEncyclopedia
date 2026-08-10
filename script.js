@@ -227,7 +227,16 @@ if (cardStack) {
 
     let startX = 0;
     let startY = 0;
+
     let isDragging = false;
+
+    /*
+     * 現在のカード
+     *
+     * false = 2枚目
+     * true  = 3枚目
+     */
+    let showingThird = false;
 
 
     /*====================================
@@ -288,30 +297,46 @@ if (cardStack) {
 
 
         /*================================
-         * 左 → 右へスワイプ
+         * 左スワイプは無効
          *
-         * 2枚目 → 3枚目
+         * 今回は「右スワイプのみ」で
+         * カードを切り替える
          *================================*/
 
-        if (diffX > 0) {
+        if (diffX <= 0) {
 
-            cardStack.classList.add("swiped");
+            return;
 
         }
 
 
         /*================================
-         * 右 → 左へスワイプ
-         *
-         * 3枚目 → 2枚目
+         * 右スワイプ
          *================================*/
 
-        if (diffX < 0) {
+        if (!showingThird) {
+
+            /*
+             * 2枚目 → 3枚目
+             */
+
+            cardStack.classList.add("swiped");
+
+            showingThird = true;
+
+        } else {
+
+            /*
+             * 3枚目 → 2枚目
+             */
 
             cardStack.classList.remove("swiped");
+
+            showingThird = false;
 
         }
 
     });
 
+}
 }
