@@ -740,21 +740,20 @@ rt{
 
 
 /*========================================*
-* 左スワイプ後
-*
-* 2枚目を左へ移動
-* 3枚目を正面へ
+- 右スワイプ後
+-
+- 2枚目を右へ移動
+- 3枚目を正面へ
 *========================================*/
 
 .card-stack.swiped .card-second{
 
     transform:
-        translateX(-105%);
+        translateX(105%);
 
     opacity:0;
 
     pointer-events:none;
-
 }
 
 
@@ -767,7 +766,6 @@ rt{
         rotate(0deg);
 
     pointer-events:auto;
-
 }
 
 
