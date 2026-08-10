@@ -881,13 +881,12 @@ rt{
 
     }
 /*========================================*
-* 身長比較エリア
+- 身長比較エリア
 *========================================*/
 
 .size-comparison{
 
     width:90%;
-
     max-width:340px;
 
     height:180px;
@@ -906,11 +905,12 @@ rt{
             #82c8c8 0%,
             #003c82 100%
         );
+
 }
 
 
 /*========================================*
-* モササウルス
+- モササウルス
 *========================================*/
 
 .comparison-mosasaurus{
@@ -922,7 +922,7 @@ rt{
 
     bottom:35px;
 
-    width:98%;
+    width:95%;
 
     margin:0 auto;
 
@@ -933,6 +933,7 @@ rt{
         4s
         ease-in-out
         infinite;
+
 }
 
 .comparison-mosasaurus img{
@@ -940,15 +941,15 @@ rt{
     display:block;
 
     width:100%;
-
     height:auto;
 
     max-width:none;
+
 }
 
 
 /*========================================*
-* 人間
+- 人間
 *========================================*/
 
 .comparison-human{
@@ -968,6 +969,7 @@ rt{
         3.2s
         ease-in-out
         infinite;
+
 }
 
 .comparison-human img{
@@ -975,13 +977,13 @@ rt{
     display:block;
 
     width:100%;
-
     height:auto;
+
 }
 
 
 /*========================================*
-* モササウルス浮遊
+- モササウルス浮遊
 *========================================*/
 
 @keyframes floatMosasaurus{
@@ -1002,7 +1004,7 @@ rt{
 
 
 /*========================================*
-* 人間浮遊
+- 人間浮遊
 *========================================*/
 
 @keyframes floatHuman{
@@ -1020,42 +1022,6 @@ rt{
     }
 
 }
-
-
-/*========================================*
-* スマホ
-*========================================*/
-
-@media (max-width:430px){
-
-    .size-comparison{
-
-        width:90%;
-
-        max-width:340px;
-
-        height:180px;
-
-        margin:10px auto 10px;
-
-    }
-
-    .comparison-mosasaurus{
-
-        width:100%;
-
-        bottom:35px;
-
-    }
-
-    .comparison-human{
-
-        left:20px;
-
-        bottom:10px;
-
-        width:70px;
-
     }
 
 }
