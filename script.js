@@ -217,29 +217,24 @@ function habitatTypeWriter() {
 
 }
 
-
 /*========================================*
-* 2枚目・3枚目カード スワイプ
-*
-* 右スワイプ → 2枚目から3枚目へ
-* 左スワイプ → 3枚目から2枚目へ戻る
-*========================================*/
+ * 2枚目・3枚目カード スワイプ
+ *========================================*/
 
 const cardStack = document.getElementById("cardStack");
 
-if(cardStack){
+if (cardStack) {
 
     let startX = 0;
     let startY = 0;
-
     let isDragging = false;
 
 
     /*====================================
-    * スワイプ開始
-    *====================================*/
+     * スワイプ開始
+     *====================================*/
 
-    cardStack.addEventListener("touchstart", (e)=>{
+    cardStack.addEventListener("touchstart", (e) => {
 
         const touch = e.touches[0];
 
@@ -248,27 +243,16 @@ if(cardStack){
 
         isDragging = true;
 
-    }, {passive:true});
+    }, { passive: true });
 
 
     /*====================================
-    * 指を動かす
-    *====================================*/
+     * スワイプ終了
+     *====================================*/
 
-    cardStack.addEventListener("touchmove", (e)=>{
+    cardStack.addEventListener("touchend", (e) => {
 
-        if(!isDragging) return;
-
-    }, {passive:true});
-
-
-    /*====================================
-    * スワイプ終了
-    *====================================*/
-
-    cardStack.addEventListener("touchend", (e)=>{
-
-        if(!isDragging) return;
+        if (!isDragging) return;
 
         isDragging = false;
 
@@ -282,13 +266,10 @@ if(cardStack){
 
 
         /*================================
-        * 縦スクロールを優先
-        *
-        * 横方向の動きが縦方向より
-        * 大きい場合だけスワイプ
-        *================================*/
+         * 縦スクロールを優先
+         *================================*/
 
-        if(Math.abs(diffX) < Math.abs(diffY)){
+        if (Math.abs(diffX) < Math.abs(diffY)) {
 
             return;
 
@@ -296,10 +277,10 @@ if(cardStack){
 
 
         /*================================
-        * 50px未満なら無視
-        *================================*/
+         * 50px未満なら無視
+         *================================*/
 
-        if(Math.abs(diffX) < 50){
+        if (Math.abs(diffX) < 50) {
 
             return;
 
@@ -307,12 +288,12 @@ if(cardStack){
 
 
         /*================================
-        * 右スワイプ
-        *
-        * 2枚目 → 3枚目
-        *================================*/
+         * 左 → 右へスワイプ
+         *
+         * 2枚目 → 3枚目
+         *================================*/
 
-        if(diffX > 0){
+        if (diffX > 0) {
 
             cardStack.classList.add("swiped");
 
@@ -320,12 +301,12 @@ if(cardStack){
 
 
         /*================================
-        * 左スワイプ
-        *
-        * 3枚目 → 2枚目に戻る
-        *================================*/
+         * 右 → 左へスワイプ
+         *
+         * 3枚目 → 2枚目
+         *================================*/
 
-        if(diffX < 0){
+        if (diffX < 0) {
 
             cardStack.classList.remove("swiped");
 
