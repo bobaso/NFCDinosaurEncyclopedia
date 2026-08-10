@@ -227,12 +227,9 @@ if (cardStack) {
 
     let startX = 0;
     let startY = 0;
-
     let isDragging = false;
 
     /*
-     * 現在のカード
-     *
      * false = 2枚目
      * true  = 3枚目
      */
@@ -243,7 +240,7 @@ if (cardStack) {
      * スワイプ開始
      *====================================*/
 
-    cardStack.addEventListener("touchstart", (e) => {
+    cardStack.addEventListener("touchstart", function (e) {
 
         const touch = e.touches[0];
 
@@ -259,9 +256,11 @@ if (cardStack) {
      * スワイプ終了
      *====================================*/
 
-    cardStack.addEventListener("touchend", (e) => {
+    cardStack.addEventListener("touchend", function (e) {
 
-        if (!isDragging) return;
+        if (!isDragging) {
+            return;
+        }
 
         isDragging = false;
 
@@ -279,9 +278,7 @@ if (cardStack) {
          *================================*/
 
         if (Math.abs(diffX) < Math.abs(diffY)) {
-
             return;
-
         }
 
 
@@ -290,23 +287,19 @@ if (cardStack) {
          *================================*/
 
         if (Math.abs(diffX) < 50) {
-
             return;
-
         }
 
 
         /*================================
          * 左スワイプは無効
          *
-         * 今回は「右スワイプのみ」で
-         * カードを切り替える
+         * 今回は右スワイプだけで
+         * 2枚目 ⇔ 3枚目を切り替える
          *================================*/
 
         if (diffX <= 0) {
-
             return;
-
         }
 
 
@@ -314,11 +307,11 @@ if (cardStack) {
          * 右スワイプ
          *================================*/
 
-        if (!showingThird) {
+        if (showingThird === false) {
 
-            /*
+            /*------------------------------
              * 2枚目 → 3枚目
-             */
+             *------------------------------*/
 
             cardStack.classList.add("swiped");
 
@@ -326,9 +319,9 @@ if (cardStack) {
 
         } else {
 
-            /*
+            /*------------------------------
              * 3枚目 → 2枚目
-             */
+             *------------------------------*/
 
             cardStack.classList.remove("swiped");
 
@@ -336,7 +329,6 @@ if (cardStack) {
 
         }
 
-    });
+    }, { passive: true });
 
-}
 }
