@@ -826,6 +826,8 @@ rt{
 
     width:100%;
 
+    height:auto;
+
     display:block;
 
     border-radius:12px;
@@ -860,6 +862,14 @@ rt{
 
     }
 
+    .feature-photo img{
+
+        width:100%;
+
+        height:auto;
+
+    }
+
     .feature-text{
 
         width:80%;
@@ -868,4 +878,5 @@ rt{
 
     }
 
+}
 }
