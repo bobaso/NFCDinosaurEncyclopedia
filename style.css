@@ -1024,5 +1024,125 @@ rt{
     }
 
 }
+    /*========================================*
+* 3枚目カード 日本の分布スクロール誘導
+*========================================*/
+
+.scroll-indicator{
+
+    position:absolute;
+
+    right:18px;
+    bottom:15px;
+
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    z-index:20;
+
+    user-select:none;
+    pointer-events:none;
+
+}
+
+
+/*========================================*
+* テキスト
+*========================================*/
+
+.scroll-text{
+
+    font-size:20px;
+
+    font-weight:900;
+
+    line-height:1;
+
+    color:#000;
+
+    white-space:nowrap;
+
+    letter-spacing:1px;
+
+}
+
+
+/*========================================*
+* 矢印
+*========================================*/
+
+.scroll-arrow{
+
+    display:flex;
+
+    gap:4px;
+
+    align-items:center;
+
+}
+
+
+/*========================================*
+* 矢印1本
+*========================================*/
+
+.scroll-arrow span{
+
+    display:block;
+
+    width:14px;
+    height:14px;
+
+    border-right:4px solid #000;
+    border-bottom:4px solid #000;
+
+    transform:rotate(-45deg);
+
+    animation:scrollArrowMove 1.2s ease-in-out infinite;
+
+}
+
+
+/*========================================*
+* 2本目の矢印
+*========================================*/
+
+.scroll-arrow span:nth-child(2){
+
+    animation-delay:.18s;
+
+}
+
+
+/*========================================*
+* 矢印アニメーション
+*========================================*/
+
+@keyframes scrollArrowMove{
+
+    0%,
+    100%{
+
+        transform:
+            translateX(0)
+            rotate(-45deg);
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:
+            translateX(5px)
+            rotate(-45deg);
+
+        opacity:.55;
+
+    }
+
+}
     }
 
