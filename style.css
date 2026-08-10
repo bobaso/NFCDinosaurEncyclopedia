@@ -880,5 +880,31 @@ rt{
         margin-top:-8px;
 
     }
+/*========================================*
+* 身長比較エリア
+*========================================*/
 
+.size-comparison{
+
+    width:90%;
+    max-width:340px;
+
+    height:220px;
+
+    margin:20px auto;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #003c82 0%,
+            #82c8c8 100%
+        );
+
+}
 }
