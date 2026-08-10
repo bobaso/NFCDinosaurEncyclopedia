@@ -887,8 +887,9 @@ rt{
 .size-comparison{
 
     width:90%;
-
     max-width:340px;
+
+    height:180px;
 
     margin:10px auto 10px;
 
@@ -904,19 +905,6 @@ rt{
             #82c8c8 0%,
             #003c82 100%
         );
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:20px 10px;
-
-    min-height:180px;
-
 }
 
 
@@ -926,16 +914,15 @@ rt{
 
 .comparison-mosasaurus{
 
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:35px;
+
     width:100%;
-
-    max-width:100%;
-
-    height:auto;
-
-    display:block;
-
-    position:relative;
-
+    
     z-index:2;
 
     animation:
@@ -943,7 +930,16 @@ rt{
         4s
         ease-in-out
         infinite;
+}
 
+.comparison-mosasaurus img{
+
+    display:block;
+
+    width:100%;
+    height:auto;
+
+    max-width:none;
 }
 
 
@@ -953,26 +949,28 @@ rt{
 
 .comparison-human{
 
-    width:50%;
+    position:absolute;
 
-    height:auto;
+    left:20px;
+    bottom:10px;
 
-    display:block;
-
-    position:relative;
+    width:70px;
 
     z-index:3;
-
-    margin-top:-20px;
-
-    align-self:flex-start;
 
     animation:
         floatHuman
         3.2s
         ease-in-out
         infinite;
+}
 
+.comparison-human img{
+
+    display:block;
+
+    width:100%;
+    height:auto;
 }
 
 
@@ -983,21 +981,15 @@ rt{
 @keyframes floatMosasaurus{
 
     0%{
-
         transform:translateY(0);
-
     }
 
     50%{
-
         transform:translateY(-8px);
-
     }
 
     100%{
-
         transform:translateY(0);
-
     }
 
 }
@@ -1010,21 +1002,15 @@ rt{
 @keyframes floatHuman{
 
     0%{
-
         transform:translateY(0);
-
     }
 
     50%{
-
         transform:translateY(7px);
-
     }
 
     100%{
-
         transform:translateY(0);
-
     }
 
 }
@@ -1039,28 +1025,31 @@ rt{
     .size-comparison{
 
         width:90%;
-
         max-width:340px;
 
-        min-height:180px;
+        height:180px;
 
         margin:10px auto 10px;
 
-        padding:15px 8px;
-
     }
+
 
     .comparison-mosasaurus{
 
         width:100%;
 
+        bottom:35px;
+
     }
+
 
     .comparison-human{
 
-        width:50%;
+        left:20px;
 
-        margin-top:-15px;
+        bottom:10px;
+
+        width:70px;
 
     }
 
