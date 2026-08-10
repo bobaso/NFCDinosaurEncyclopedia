@@ -821,25 +821,21 @@ rt{
 .feature-photo{
 
     width:90%;
-
     max-width:340px;
 
-    margin:0 auto 5px;
+    margin:0 auto 0;
 
     transform:none;
-
 }
 
 .feature-photo img{
 
     width:100%;
-
     height:auto;
 
     display:block;
 
     border-radius:12px;
-
 }
 
 
@@ -849,8 +845,9 @@ rt{
 
 .feature-text{
 
-    margin-top:0;
+    width:80%;
 
+    margin-top:-8px;
 }
 
 
@@ -863,17 +860,15 @@ rt{
     .feature-photo{
 
         width:90%;
-
         max-width:340px;
 
-        margin:0 auto 5px;
+        margin:0 auto 0;
 
     }
 
     .feature-photo img{
 
         width:100%;
-
         height:auto;
 
     }
@@ -882,9 +877,8 @@ rt{
 
         width:80%;
 
-        margin-top:0;
+        margin-top:-8px;
 
     }
 
-}
 }
