@@ -881,19 +881,19 @@ rt{
 
     }
 /*========================================*
-* 身長比較エリア
+* 大きさ比較エリア
 *========================================*/
 
 .size-comparison{
 
+    position:relative;
+
     width:90%;
     max-width:340px;
 
-    height:220px;
+    aspect-ratio:876 / 843;
 
-    margin:20px auto;
-
-    position:relative;
+    margin:25px auto 25px;
 
     overflow:hidden;
 
@@ -902,9 +902,314 @@ rt{
     background:
         linear-gradient(
             135deg,
-            #003c82 0%,
-            #82c8c8 100%
+            #82c8c8 0%,
+            #003c82 100%
         );
+
+}
+
+
+/*========================================*
+* モササウルス
+*========================================*/
+
+.size-mosasaurus{
+
+    position:absolute;
+
+    left:6%;
+    top:12%;
+
+    width:88%;
+
+    animation:
+        mosasaurusFloat
+        4.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* モササウルス画像 */
+
+.size-mosasaurus img{
+
+    width:100%;
+    height:auto;
+
+    display:block;
+
+}
+
+
+/*========================================*
+* モササウルスのラベル
+*========================================*/
+
+.size-mosasaurus .size-label{
+
+    position:absolute;
+
+    top:-8px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#fff;
+
+    text-align:center;
+
+    font-size:12px;
+
+    line-height:1.3;
+
+    white-space:nowrap;
+
+}
+
+
+/*========================================*
+* 人間
+*========================================*/
+
+.size-human{
+
+    position:absolute;
+
+    left:7%;
+    bottom:22%;
+
+    width:25%;
+
+    animation:
+        humanFloat
+        3.2s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* 人間画像 */
+
+.size-human img{
+
+    width:100%;
+    height:auto;
+
+    display:block;
+
+}
+
+
+/*========================================*
+* 人間のラベル
+*========================================*/
+
+.size-human .size-label{
+
+    position:absolute;
+
+    left:50%;
+    bottom:-38px;
+
+    transform:translateX(-50%);
+
+    color:#fff;
+
+    text-align:center;
+
+    font-size:11px;
+
+    line-height:1.3;
+
+    white-space:nowrap;
+
+}
+
+
+/*========================================*
+* ラベル文字
+*========================================*/
+
+.size-label strong{
+
+    display:block;
+
+    font-weight:700;
+
+}
+
+.size-label span{
+
+    display:block;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+/*========================================*
+* スケールライン
+*========================================*/
+
+.size-scale{
+
+    position:absolute;
+
+    left:8%;
+    right:8%;
+
+    bottom:8%;
+
+    height:2px;
+
+    background:rgba(255,255,255,.9);
+
+}
+
+
+.size-scale::before,
+.size-scale::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-7px;
+
+    width:2px;
+    height:16px;
+
+    background:rgba(255,255,255,.9);
+
+}
+
+.size-scale::before{
+
+    left:0;
+
+}
+
+.size-scale::after{
+
+    right:0;
+
+}
+
+
+/*========================================*
+* モササウルス浮遊
+*========================================*/
+
+@keyframes mosasaurusFloat{
+
+    0%{
+
+        transform:
+            translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/*========================================*
+* 人間浮遊
+*========================================*/
+
+@keyframes humanFloat{
+
+    0%{
+
+        transform:
+            translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(10px);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/*========================================*
+* スマホ
+*========================================*/
+
+@media (max-width:430px){
+
+    .size-comparison{
+
+        width:90%;
+
+        max-width:340px;
+
+        margin:25px auto 25px;
+
+    }
+
+    .size-mosasaurus{
+
+        left:6%;
+
+        top:12%;
+
+        width:88%;
+
+    }
+
+    .size-human{
+
+        left:7%;
+
+        bottom:22%;
+
+        width:25%;
+
+    }
+
+    .size-mosasaurus .size-label{
+
+        font-size:11px;
+
+    }
+
+    .size-human .size-label{
+
+        font-size:10px;
+
+        bottom:-34px;
+
+    }
 
 }
 }
