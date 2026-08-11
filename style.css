@@ -417,7 +417,7 @@ body::after{
 
     z-index:5;
 
-    color:#fff;
+    color:#000;
 
     pointer-events:none;
 }
@@ -438,7 +438,7 @@ body::after{
 
     letter-spacing:2px;
 
-    color:#666;
+    color:#000;
 }
 
 /*==================================================*
@@ -459,7 +459,7 @@ body::after{
 
     letter-spacing:1.5px;
 
-    color:#666;
+    color:#000;
 }
 /*==================================================
   本文
