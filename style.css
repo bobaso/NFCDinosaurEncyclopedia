@@ -950,12 +950,39 @@ rt{
 
 }
 /*========================================*
- * 全長比較ラベル
- *========================================*/
+* 全長比較ラベル
+*========================================*/
 
 /*----------------------------------------
- * モササウルスのラベル
- *----------------------------------------*/
+* SIZE COMPARISON
+*----------------------------------------*/
+
+.size-comparison-title{
+
+    position:absolute;
+
+    top:10px;
+    left:12px;
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    text-shadow:
+        0 2px 4px rgba(0,0,0,.6);
+
+    z-index:10;
+
+}
+
+
+/*----------------------------------------
+* モササウルスのラベル
+*----------------------------------------*/
 
 .mosasaurus-label{
 
@@ -966,11 +993,15 @@ rt{
 
     transform:translateX(-50%);
 
+    width:max-content;
+
     color:#fff;
 
     font-size:15px;
 
     font-weight:900;
+
+    text-align:center;
 
     white-space:nowrap;
 
@@ -985,8 +1016,8 @@ rt{
 
 
 /*----------------------------------------
- * 成人男性のラベル
- *----------------------------------------*/
+* 成人男性のラベル
+*----------------------------------------*/
 
 .human-label{
 
@@ -997,11 +1028,15 @@ rt{
 
     transform:translateX(-50%);
 
+    width:max-content;
+
     color:#fff;
 
     font-size:14px;
 
     font-weight:900;
+
+    text-align:center;
 
     white-space:nowrap;
 
