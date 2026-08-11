@@ -403,15 +403,13 @@ body::after{
 
 .dinosaur-title{
 
-    position:absolute;
+    position:relative;
 
-    left:50%;
+    width:90%;
 
-    top:50px;
+    max-width:340px;
 
-    transform:translateX(-50%);
-
-    width:100%;
+    margin:5px auto 0;
 
     text-align:center;
 
@@ -460,6 +458,16 @@ body::after{
     letter-spacing:1.5px;
 
     color:#000;
+}
+/*==================================================*
+*モササウルス画像
+*==================================================*/
+
+.dinosaur-photo{
+
+    margin-top:15px;
+
+    transform:none;
 }
 /*==================================================
   本文
