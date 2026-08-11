@@ -849,6 +849,34 @@ rt{
         margin-top:-8px;
 
     }
+
+    /*========================================*
+* SIZE COMPARISON タイトル
+*========================================*/
+
+.size-comparison-title{
+
+    display:block;
+
+    width:90%;
+    max-width:340px;
+
+    margin:0 auto 6px;
+
+    text-align:left;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    color:#fff;
+
+    text-shadow:
+        0 2px 4px rgba(0,0,0,.5);
+
+}
 /*========================================*
 - 身長比較エリア
 *========================================*/
