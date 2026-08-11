@@ -721,32 +721,69 @@ rt{
 }
 
 
-/*==================================================
-  SIZE COMPARISON タイトル
-==================================================*/
+/*==================================================*
+*全長比較タイトル*
+*==================================================*/
 
-.size-comparison-title{
-
-    display:block;
+.size-comparison-heading{
 
     width:90%;
 
     max-width:340px;
 
-    margin:0 auto 6px;
+    margin:0 auto 8px;
 
-    text-align:left;
+    display:flex;
 
-    font-size:14px;
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:#000;
+}
+
+
+/*==================================================*
+*全長比較*
+*==================================================*/
+
+.size-comparison-jp{
+
+    display:block;
+
+    font-size:20px;
 
     font-weight:900;
 
+    line-height:1.4;
+
     letter-spacing:2px;
 
-    color:#fff;
+    color:#000;
+}
 
-    text-shadow:
-        0 2px 4px rgba(0,0,0,.5);
+
+/*==================================================*
+*SIZE COMPARISON*
+*==================================================*/
+
+.size-comparison-title{
+
+    display:block;
+
+    margin-top:2px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    line-height:1.4;
+
+    letter-spacing:2px;
+
+    color:#000;
 }
 
 
