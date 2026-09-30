@@ -513,14 +513,6 @@ body::after{
     text-align:center;
 }
 
-.contents h1{
-
-    font-size:30px;
-
-    line-height:1.35;
-
-    margin-bottom:20px;
-}
 
 .contents h1 span{
 
@@ -1223,15 +1215,4 @@ rt{
     text-align:center;
 }
 
-.topic-title h1{
 
-    font-size:30px;
-
-    line-height:1.35;
-
-    margin:0;
-
-    font-weight:900;
-
-    color:#000;
-}
