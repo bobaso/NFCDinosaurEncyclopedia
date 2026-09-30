@@ -1200,3 +1200,45 @@ rt{
         opacity:.55;
     }
 }
+
+/*==================================================
+  4枚目カード
+==================================================*/
+
+.card-fourth{
+
+    width:calc(100% - 40px);
+
+    max-width:390px;
+
+    margin:40px auto 80px;
+
+    position:relative;
+}
+
+
+/*==================================================
+  4枚目カード 見出し
+==================================================*/
+
+.topic-title{
+
+    width:80%;
+
+    margin:0 auto;
+
+    text-align:center;
+}
+
+.topic-title h1{
+
+    font-size:30px;
+
+    line-height:1.35;
+
+    margin:0;
+
+    font-weight:900;
+
+    color:#000;
+}
