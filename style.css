@@ -1210,5 +1210,15 @@ rt{
 }
     text-align:center;
 }
+.topic-text{
+    width:80%;
+    margin:0 auto;
+    text-align:center;
+}
 
+.topic-text p{
+    font-size:16px;
+    line-height:2.1;
+    margin:0;
+}
 
