@@ -1211,7 +1211,20 @@ rt{
     width:80%;
 
     margin:0 auto;
+  
+.topic-photo{
+    width:90%;
+    max-width:340px;
+    margin:0 auto 30px;
+    transform:none;
+}
 
+.topic-photo img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:12px;
+}
     text-align:center;
 }
 
