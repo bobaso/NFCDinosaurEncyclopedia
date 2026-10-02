@@ -1184,41 +1184,248 @@ rt{
     }
 }
 /*==================================================
+  4〜6枚目 カードスタック
+==================================================*/
+
+/*--------------------------------------------------
+  4〜6枚目 共通
+--------------------------------------------------*/
+
+.topic-card-stack{
+    position:relative;
+
+    width:calc(100% - 40px);
+
+    max-width:390px;
+
+    margin:40px auto 80px;
+
+    min-height:700px;
+}
+
+
+/*--------------------------------------------------
+  4〜6枚目 共通カード
+--------------------------------------------------*/
+
+.topic-card-stack .info-card{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    max-width:none;
+
+    margin:0;
+
+    transition:
+        transform .45s ease,
+        opacity .45s ease;
+}
+
+
+/*==================================================
+  4枚目カード
+==================================================*/
+
+.card-fourth{
+
+    z-index:3;
+
+    transform:
+        translate(0,0)
+        rotate(0deg);
+
+    pointer-events:auto;
+}
+
+
+/*==================================================
+  5枚目カード
+==================================================*/
+
+.card-fifth{
+
+    z-index:2;
+
+    transform:
+        translate(14px,14px)
+        rotate(3deg);
+
+    pointer-events:none;
+}
+
+
+/*==================================================
+  6枚目カード
+==================================================*/
+
+.card-sixth{
+
+    z-index:1;
+
+    transform:
+        translate(28px,28px)
+        rotate(6deg);
+
+    pointer-events:none;
+}
+
+
+/*==================================================
+  4 → 5枚目
+==================================================*/
+
+.topic-card-stack.swiped-1 .card-fourth{
+
+    z-index:1;
+
+    transform:
+        translate(28px,28px)
+        rotate(6deg);
+
+    pointer-events:none;
+}
+
+
+.topic-card-stack.swiped-1 .card-fifth{
+
+    z-index:3;
+
+    transform:
+        translate(0,0)
+        rotate(0deg);
+
+    pointer-events:auto;
+}
+
+
+.topic-card-stack.swiped-1 .card-sixth{
+
+    z-index:2;
+
+    transform:
+        translate(14px,14px)
+        rotate(3deg);
+
+    pointer-events:none;
+}
+
+
+/*==================================================
+  5 → 6枚目
+==================================================*/
+
+.topic-card-stack.swiped-2 .card-fourth{
+
+    z-index:1;
+
+    transform:
+        translate(56px,56px)
+        rotate(9deg);
+
+    pointer-events:none;
+}
+
+
+.topic-card-stack.swiped-2 .card-fifth{
+
+    z-index:2;
+
+    transform:
+        translate(28px,28px)
+        rotate(6deg);
+
+    pointer-events:none;
+}
+
+
+.topic-card-stack.swiped-2 .card-sixth{
+
+    z-index:3;
+
+    transform:
+        translate(0,0)
+        rotate(0deg);
+
+    pointer-events:auto;
+}
+
+
+/*==================================================
   4枚目カード　トピック
 ==================================================*/
+
 .card-fourth{
     margin-top:150px;
 }
+
+
+/*==================================================
+  トピックタイトル
+==================================================*/
+
 .topic-title{
 
     width:80%;
 
     margin:0 auto;
-  
+
+    text-align:center;
+}
+
+
+/*==================================================
+  トピック画像
+==================================================*/
+
 .topic-photo{
+
     width:90%;
+
     max-width:340px;
+
     margin:0 auto 30px;
+
     transform:none;
 }
 
+
 .topic-photo img{
+
     width:100%;
+
     height:auto;
+
     display:block;
+
     border-radius:12px;
 }
-    text-align:center;
-}
+
+
+/*==================================================
+  トピック本文
+==================================================*/
+
 .topic-text{
+
     width:80%;
+
     margin:0 auto;
+
     text-align:center;
 }
+
 
 .topic-text p{
+
     font-size:16px;
+
     line-height:2.1;
+
     margin:0;
 }
-
