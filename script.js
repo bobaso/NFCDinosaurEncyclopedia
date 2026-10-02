@@ -332,3 +332,116 @@ if (cardStack) {
     }, { passive: true });
 
 }
+const topicCardStack = document.getElementById("topicCardStack");
+
+if (topicCardStack) {
+
+    let topicStartX = 0;
+    let topicStartY = 0;
+    let topicIsDragging = false;
+
+    let topicCardIndex = 0;
+
+
+    /* ==========================
+       タッチ開始
+    ========================== */
+
+    topicCardStack.addEventListener("touchstart", function(e) {
+
+        const touch = e.touches[0];
+
+        topicStartX = touch.clientX;
+        topicStartY = touch.clientY;
+
+        topicIsDragging = true;
+
+    }, { passive: true });
+
+
+    /* ==========================
+       タッチ終了
+    ========================== */
+
+    topicCardStack.addEventListener("touchend", function(e) {
+
+        if (!topicIsDragging) return;
+
+        topicIsDragging = false;
+
+        const touch = e.changedTouches[0];
+
+        const topicEndX = touch.clientX;
+        const topicEndY = touch.clientY;
+
+        const diffX = topicEndX - topicStartX;
+        const diffY = topicEndY - topicStartY;
+
+
+        /* 縦スクロールの場合は無視 */
+
+        if (Math.abs(diffX) < Math.abs(diffY)) {
+            return;
+        }
+
+
+        /* 小さいスワイプは無視 */
+
+        if (Math.abs(diffX) < 50) {
+            return;
+        }
+
+
+        /* ==========================
+           右スワイプ
+           4 → 5 → 6
+        ========================== */
+
+        if (diffX > 0) {
+
+            if (topicCardIndex < 2) {
+                topicCardIndex++;
+            }
+
+        }
+
+
+        /* ==========================
+           左スワイプ
+           6 → 5 → 4
+        ========================== */
+
+        if (diffX < 0) {
+
+            if (topicCardIndex > 0) {
+                topicCardIndex--;
+            }
+
+        }
+
+
+        /* ==========================
+           クラス切り替え
+        ========================== */
+
+        topicCardStack.classList.remove(
+            "swiped-1",
+            "swiped-2"
+        );
+
+
+        if (topicCardIndex === 1) {
+
+            topicCardStack.classList.add("swiped-1");
+
+        }
+
+        if (topicCardIndex === 2) {
+
+            topicCardStack.classList.add("swiped-2");
+
+        }
+
+    }, { passive: true });
+
+}
