@@ -380,11 +380,9 @@ if (cardStack) {
         }
 
 
-        /*================================
-         * 右スワイプ
-         *================================*/
-
-        if (showingThird === false) {
+      /*================================
+ * 右スワイプ
+ *================================*/
 
 if (showingThird === false) {
 
@@ -410,15 +408,15 @@ if (showingThird === false) {
 
 } else {
 
-            /*------------------------------
-             * 3枚目 → 2枚目
-             *------------------------------*/
+    /*------------------------------
+     * 3枚目 → 2枚目
+     *------------------------------*/
 
-            cardStack.classList.remove("swiped");
+    cardStack.classList.remove("swiped");
 
-            showingThird = false;
+    showingThird = false;
 
-        }
+}
 
     }, { passive: true });
 
