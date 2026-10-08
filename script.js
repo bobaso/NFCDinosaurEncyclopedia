@@ -51,18 +51,15 @@ window.addEventListener("load", () => {
 
                 setTimeout(() => {
 
-
                     /*==============================
                     * 1枚目を表示
                     *==============================*/
 
-                    cards[0].classList.add("show");
-
-                    typeWriter();
+                    activateCard(cards[0]);
 
 
                     /*==============================
-                    * 2枚目以降を監視
+                    * 2枚目を監視
                     *==============================*/
 
                     const observer =
@@ -77,21 +74,37 @@ window.addEventListener("load", () => {
                                 }
 
 
-                                entry.target.classList.add("show");
+                                /*------------------------------
+                                * 2枚目
+                                *------------------------------*/
+
+                                if (
+                                    entry.target.classList.contains(
+                                        "card-second"
+                                    )
+                                ) {
+
+                                    activateCard(entry.target);
+
+                                }
 
 
                                 /*------------------------------
-                                * 2枚目が表示されたら
-                                * HABITAT RANGE開始
+                                * 4枚目
                                 *------------------------------*/
 
-                                if (entry.target === cards[1]) {
+                                if (
+                                    entry.target.classList.contains(
+                                        "topic-card-stack"
+                                    )
+                                ) {
 
-                                    setTimeout(() => {
+                                    const fourthCard =
+                                        entry.target.querySelector(
+                                            ".card-fourth"
+                                        );
 
-                                        habitatTypeWriter();
-
-                                    }, 800);
+                                    activateCard(fourthCard);
 
                                 }
 
@@ -102,24 +115,37 @@ window.addEventListener("load", () => {
 
                         }, {
 
-                            threshold: 0.15
+                            threshold:0.15
 
                         });
 
 
                     /*------------------------------
-                    * 2枚目以降を監視
+                    * 2枚目を監視
                     *------------------------------*/
 
-                    cards.forEach((card, index) => {
+                    const secondCard =
+                        document.querySelector(".card-second");
 
-                        if (index > 0) {
+                    if (secondCard) {
 
-                            observer.observe(card);
+                        observer.observe(secondCard);
 
-                        }
+                    }
 
-                    });
+
+                    /*------------------------------
+                    * 4〜6枚目のスタックを監視
+                    *------------------------------*/
+
+                    const topicStack =
+                        document.getElementById("topicCardStack");
+
+                    if (topicStack) {
+
+                        observer.observe(topicStack);
+
+                    }
 
 
                 }, 300);
@@ -132,6 +158,57 @@ window.addEventListener("load", () => {
     }, 20);
 
 });
+
+
+/*========================================*
+* カードをアクティブ化
+*========================================*/
+
+function activateCard(card) {
+
+    if (!card) {
+
+        return;
+
+    }
+
+
+    /*------------------------------
+    * すでに表示済みなら何もしない
+    *------------------------------*/
+
+    if (card.classList.contains("show")) {
+
+        return;
+
+    }
+
+
+    /*------------------------------
+    * フェードイン
+    *------------------------------*/
+
+    card.classList.add("show");
+
+
+    /*------------------------------
+    * 2枚目
+    * HABITAT RANGE
+    *------------------------------*/
+
+    if (
+        card.classList.contains("card-second")
+    ) {
+
+        setTimeout(() => {
+
+            habitatTypeWriter();
+
+        }, 800);
+
+    }
+
+}
 
 
 /*========================================*
@@ -309,15 +386,29 @@ if (cardStack) {
 
         if (showingThird === false) {
 
-            /*------------------------------
-             * 2枚目 → 3枚目
-             *------------------------------*/
+if (showingThird === false) {
 
-            cardStack.classList.add("swiped");
+    /*------------------------------
+     * 2枚目 → 3枚目
+     *------------------------------*/
 
-            showingThird = true;
+    cardStack.classList.add("swiped");
 
-        } else {
+    showingThird = true;
+
+
+    /*------------------------------
+     * 3枚目が最前面になったら
+     * フェードイン
+     *------------------------------*/
+
+    const thirdCard =
+        cardStack.querySelector(".card-third");
+
+    activateCard(thirdCard);
+
+
+} else {
 
             /*------------------------------
              * 3枚目 → 2枚目
@@ -430,18 +521,40 @@ if (topicCardStack) {
         );
 
 
-        if (topicCardIndex === 1) {
+if (topicCardIndex === 1) {
 
-            topicCardStack.classList.add("swiped-1");
+    topicCardStack.classList.add("swiped-1");
 
-        }
 
-        if (topicCardIndex === 2) {
+    /*------------------------------
+     * 5枚目が最前面になったら
+     * フェードイン
+     *------------------------------*/
 
-            topicCardStack.classList.add("swiped-2");
+    const fifthCard =
+        topicCardStack.querySelector(".card-fifth");
 
-        }
+    activateCard(fifthCard);
 
+}
+
+
+if (topicCardIndex === 2) {
+
+    topicCardStack.classList.add("swiped-2");
+
+
+    /*------------------------------
+     * 6枚目が最前面になったら
+     * フェードイン
+     *------------------------------*/
+
+    const sixthCard =
+        topicCardStack.querySelector(".card-sixth");
+
+    activateCard(sixthCard);
+
+}
     }, { passive: true });
 
 }
