@@ -538,24 +538,19 @@ body::after{
   フェードイン
 ==================================================*/
 
+
 .fadein{
-
     opacity:0;
-
-    transform:translateY(40px);
-
+    translate: 0 40px;
     transition:
         opacity .8s ease,
-        transform .8s ease;
+        translate .8s ease;
 }
 
 .fadein.show{
-
     opacity:1;
-
-    transform:translateY(0);
+    translate: 0 0;
 }
-
 
 /*==================================================
   ルビ
