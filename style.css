@@ -537,20 +537,20 @@ body::after{
 /*==================================================
   フェードイン
 ==================================================*/
-
-
-.fadein{
-    opacity:0;
+.fadein {
+    opacity: 0;
     translate: 0 40px;
+
     transition:
         opacity .8s ease,
         translate .8s ease;
 }
 
-.fadein.show{
-    opacity:1;
+.fadein.show {
+    opacity: 1;
     translate: 0 0;
 }
+
 
 /*==================================================
   ルビ
@@ -674,7 +674,10 @@ rt{
 
     transition:
         transform .45s ease,
-        opacity .45s ease;
+        opacity .8s ease,
+        translate .8s ease;
+
+
 }
 
 
@@ -1217,9 +1220,12 @@ rt{
 
     margin:0;
 
+
     transition:
         transform .45s ease,
-        opacity .45s ease;
+        opacity .8s ease,
+        translate .8s ease;
+
 }
 
 
