@@ -61,8 +61,6 @@ window.addEventListener("load", () => {
                     /*==============================
                     * 2枚目を監視
                     *==============================*/
-
-                    const observer =
                        const observer =
     new IntersectionObserver((entries) => {
 
