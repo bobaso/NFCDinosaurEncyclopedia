@@ -63,61 +63,38 @@ window.addEventListener("load", () => {
                     *==============================*/
 
                     const observer =
-                        new IntersectionObserver((entries) => {
+                       const observer =
+    new IntersectionObserver((entries) => {
 
-                            entries.forEach(entry => {
+        entries.forEach(entry => {
 
-                                if (!entry.isIntersecting) {
+            if (!entry.isIntersecting) {
+                return;
+            }
 
-                                    return;
+            /*------------------------------
+            * 2枚目
+            *------------------------------*/
 
-                                }
+            if (
+                entry.target.classList.contains(
+                    "card-second"
+                )
+            ) {
 
+                activateCard(entry.target);
 
-                                /*------------------------------
-                                * 2枚目
-                                *------------------------------*/
+            }
 
-                                if (
-                                    entry.target.classList.contains(
-                                        "card-second"
-                                    )
-                                ) {
+            observer.unobserve(entry.target);
 
-                                    activateCard(entry.target);
+        });
 
-                                }
+    }, {
 
+        threshold: 0.15
 
-                                /*------------------------------
-                                * 4枚目
-                                *------------------------------*/
-
-                                if (
-                                    entry.target.classList.contains(
-                                        "topic-card-stack"
-                                    )
-                                ) {
-
-                                    const fourthCard =
-                                        entry.target.querySelector(
-                                            ".card-fourth"
-                                        );
-
-                                    activateCard(fourthCard);
-
-                                }
-
-
-                                observer.unobserve(entry.target);
-
-                            });
-
-                        }, {
-
-                            threshold:0.15
-
-                        });
+    });
 
 
                     /*------------------------------
@@ -133,19 +110,7 @@ window.addEventListener("load", () => {
 
                     }
 
-
-                    /*------------------------------
-                    * 4〜6枚目のスタックを監視
-                    *------------------------------*/
-
-                    const topicStack =
-                        document.getElementById("topicCardStack");
-
-                    if (topicStack) {
-
-                        observer.observe(topicStack);
-
-                    }
+                    
 
 
                 }, 300);
@@ -418,141 +383,6 @@ if (showingThird === false) {
 
 }
 
-    }, { passive: true });
-
-}
-const topicCardStack = document.getElementById("topicCardStack");
-
-if (topicCardStack) {
-
-    let topicStartX = 0;
-    let topicStartY = 0;
-    let topicIsDragging = false;
-
-    let topicCardIndex = 0;
-
-
-    /* ==========================
-       タッチ開始
-    ========================== */
-
-    topicCardStack.addEventListener("touchstart", function(e) {
-
-        const touch = e.touches[0];
-
-        topicStartX = touch.clientX;
-        topicStartY = touch.clientY;
-
-        topicIsDragging = true;
-
-    }, { passive: true });
-
-
-    /* ==========================
-       タッチ終了
-    ========================== */
-
-    topicCardStack.addEventListener("touchend", function(e) {
-
-        if (!topicIsDragging) return;
-
-        topicIsDragging = false;
-
-        const touch = e.changedTouches[0];
-
-        const topicEndX = touch.clientX;
-        const topicEndY = touch.clientY;
-
-        const diffX = topicEndX - topicStartX;
-        const diffY = topicEndY - topicStartY;
-
-
-        /* 縦スクロールの場合は無視 */
-
-        if (Math.abs(diffX) < Math.abs(diffY)) {
-            return;
-        }
-
-
-        /* 小さいスワイプは無視 */
-
-        if (Math.abs(diffX) < 50) {
-            return;
-        }
-
-
-        /* ==========================
-           右スワイプ
-           4 → 5 → 6
-        ========================== */
-
-        if (diffX > 0) {
-
-            if (topicCardIndex < 2) {
-                topicCardIndex++;
-            }
-
-        }
-
-
-        /* ==========================
-           左スワイプ
-           6 → 5 → 4
-        ========================== */
-
-        if (diffX < 0) {
-
-            if (topicCardIndex > 0) {
-                topicCardIndex--;
-            }
-
-        }
-
-
-        /* ==========================
-           クラス切り替え
-        ========================== */
-
-        topicCardStack.classList.remove(
-            "swiped-1",
-            "swiped-2"
-        );
-
-
-if (topicCardIndex === 1) {
-
-    topicCardStack.classList.add("swiped-1");
-
-
-    /*------------------------------
-     * 5枚目が最前面になったら
-     * フェードイン
-     *------------------------------*/
-
-    const fifthCard =
-        topicCardStack.querySelector(".card-fifth");
-
-    activateCard(fifthCard);
-
-}
-
-
-if (topicCardIndex === 2) {
-
-    topicCardStack.classList.add("swiped-2");
-
-
-    /*------------------------------
-     * 6枚目が最前面になったら
-     * フェードイン
-     *------------------------------*/
-
-    const sixthCard =
-        topicCardStack.querySelector(".card-sixth");
-
-    activateCard(sixthCard);
-
-}
     }, { passive: true });
 
 }
